@@ -1,0 +1,10 @@
+.home_container {
+  display: flex;
+}
+
+.home_wrapper {
+  background-color: #f3f2ef;
+  display: flex;
+  flex-direction: column;
+  align-item: center;
+}
