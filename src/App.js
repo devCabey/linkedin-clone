@@ -1,17 +1,8 @@
-import Header from "./components/header/Header";
+import React from "react";
+import Home from "./pages/homepage/Home";
 
 function App() {
-  return (
-    <div className="app">
-      {/* Header */}
-      <Header />
-
-      {/* App Body */}
-      {/* Sidebar */}
-      {/* feed */}
-      {/* widget */}
-    </div>
-  );
+  return <Home />;
 }
 
 export default App;
