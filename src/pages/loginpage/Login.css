@@ -1,0 +1,192 @@
+.login_page {
+  display: flex;
+  height: 960px;
+  flex-direction: column;
+  /* flex: 1; */
+  background-color: white;
+}
+
+.login_header {
+  /* width: 100%; */
+  height: 10%;
+  cursor: pointer;
+  margin: 20px 0px 0px 60px;
+}
+
+.login_header > img {
+  width: 120px;
+}
+
+.login_content_wrapper {
+  /* border: 1px solid red; */
+  display: flex;
+  height: 80%;
+  justify-content: center;
+  align-items: center;
+}
+
+.login_content_container {
+}
+
+.login_content_box {
+  /* border: 0.5px solid lightgray; */
+  background-color: white;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.15);
+  border-radius: 10px;
+  padding: 30px 15px;
+}
+
+.login_content_box > h2 {
+  font-size: 30px;
+}
+
+.login_content_box > h5 {
+  font-weight: 500;
+  margin-top: 5px;
+  color: #555555;
+}
+
+.login_forgot {
+  margin: 0px 0px 0px 0px;
+  font-weight: 600;
+  color: #0275d8;
+  padding: 5px;
+  cursor: pointer;
+  border-radius: 20px;
+}
+
+.login_forgot:hover {
+  text-decoration: underline;
+  background-color: rgba(0, 86, 245, 0.3);
+}
+
+.login_button {
+  width: 250px;
+  display: flex;
+  background-color: #0275d8;
+  padding: 13px;
+  justify-content: center;
+  align-items: center;
+  border-radius: 30px;
+  margin: 10px;
+  cursor: pointer;
+}
+
+.login_button > span {
+  color: white;
+  font-weight: 600;
+}
+
+.login_button:hover {
+  background-color: #004b7c;
+}
+
+.login_other_button {
+  width: 250px;
+  display: flex;
+  background-color: white;
+  padding: 13px;
+  justify-content: center;
+  align-items: center;
+  border-radius: 30px;
+  margin: 10px;
+  cursor: pointer;
+  border: 2px solid gray;
+}
+
+.login_other_button:hover {
+  background-color: whitesmoke;
+  border: 2px solid black;
+}
+
+.login_other_button > span {
+  color: #393a40;
+  margin-left: 10px;
+  font-weight: 650;
+}
+
+.login_alt {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 20px 0px;
+}
+
+.login_alt > span {
+  border: 0.5px solid lightgray;
+  flex: 1;
+}
+
+.login_alt > p {
+  margin: 0px 5px;
+}
+
+.login_signup_route {
+  /* border: 1px solid red; */
+  margin: 30px 0px 0px 0px;
+  text-align: center;
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.login_signup_route > span {
+  color: #0275d8;
+  font-weight: 700;
+  font-size: 16px;
+  cursor: pointer;
+  padding: 4px;
+  border-radius: 20px;
+}
+
+.login_signup_route > span:hover {
+  background-color: rgba(0, 86, 245, 0.3);
+}
+
+.login_footer {
+  /* border: 1px solid red; */
+  height: 10%;
+  display: flex;
+  justify-content: center;
+  align-items: end;
+}
+
+.login_footer_logo {
+  display: flex;
+  justify-content: center;
+  font-size: 15px;
+  font-weight: 600;
+  margin: 5px 0px;
+}
+
+.login_copyright {
+  font-size: 12px;
+  font-weight: 550;
+  margin: 5px 5px;
+}
+
+.login_footer_list {
+  display: flex;
+  padding: 0px;
+  margin: 0px;
+}
+
+.login_footer_list > li {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+  font-size: 12px;
+  font-weight: 700;
+  cursor: pointer;
+  color: #35373b;
+  margin-right: 15px;
+}
+
+.login_footer_list > li:hover {
+  text-decoration: underline;
+}
+
+.login_footer_list > li:last-child:hover {
+  text-decoration: none;
+  color: #2570fa;
+}
