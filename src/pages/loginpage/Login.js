@@ -4,6 +4,15 @@ import AuthFooter from "../../components/authFooter/AuthFooter";
 import LoginInput from "../../components/loginInput/LoginInput";
 import "./Login.css";
 
+const loginFooterList = [
+  "User Agreement",
+  "Privacy Policy",
+  "Community Guidelines",
+  "Cookies Policy",
+  "Copyright Policy",
+  "Send Feedback",
+];
+
 function Login() {
   return (
     <div className="login_page">
@@ -51,7 +60,7 @@ function Login() {
         </div>
       </div>
       {/* footer */}
-      <AuthFooter />
+      <AuthFooter list={loginFooterList} />
     </div>
   );
 }
