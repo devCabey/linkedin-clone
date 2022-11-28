@@ -1,0 +1,49 @@
+.signup_input_container {
+  margin: 20px 10px;
+}
+
+.signup_input_container > h6 {
+  font-weight: 500;
+  font-size: 13px;
+  color: #444444;
+  margin: 4px 0px;
+  text-align: left;
+}
+
+.signup_input_container > h4 {
+  font-weight: 500;
+  font-size: 14px;
+  color: #d9534f;
+  text-align: left;
+  margin: 4px 0px;
+}
+
+.signup_input_spot {
+  display: flex;
+  align-items: center;
+  height: 30px;
+  border: 1px solid #1b1c1b;
+  border-radius: 4px;
+  padding: 0px 2px;
+}
+
+.signup_input_spot:hover {
+  border: 1px solid red;
+}
+
+.signup_input_spot > span {
+  font-size: 14px;
+  color: gray;
+  margin: 0px 4px 0px 0px;
+  cursor: pointer;
+}
+
+.signup_input_spot > span:hover {
+  text-decoration: underline;
+}
+
+.signup_input_spot > input {
+  outline: none;
+  border: 0px;
+  flex: 1;
+}

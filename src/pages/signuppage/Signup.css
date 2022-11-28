@@ -1,0 +1,148 @@
+.signup_container {
+  height: 960px;
+  display: flex;
+  flex-direction: column;
+  background-color: whitesmoke;
+}
+
+.signup_header {
+  display: flex;
+  justify-content: space-around;
+}
+
+.signup_header > img {
+  width: 140px;
+}
+
+.signup_content_wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.signup_content_wrapper > p {
+  font-size: 35px;
+  font-weight: 400;
+  margin: 20px;
+}
+
+.signup_content_container {
+  text-align: center;
+  width: 370px;
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.15);
+  padding: 10px;
+}
+
+.signup_content_container > p {
+  margin: 10px;
+  font-size: 11px;
+  font-weight: 500;
+  color: #292b2c;
+}
+
+.signup_content_container > p > span {
+  color: #0275d8;
+  cursor: pointer;
+}
+
+.signup_content_container > p > span:hover {
+  text-decoration: underline;
+}
+
+.signup_button {
+  width: 300px;
+  display: flex;
+  background-color: #0275d8;
+  padding: 13px;
+  justify-content: center;
+  align-items: center;
+  border-radius: 30px;
+  margin: 20px;
+  cursor: pointer;
+}
+
+.signup_button > span {
+  color: white;
+  font-weight: 600;
+}
+
+.signup_button:hover {
+  background-color: #004b7c;
+}
+
+.signup_alt {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 20px 40px;
+}
+
+.signup_alt > span {
+  border: 0.5px solid lightgray;
+  flex: 1;
+}
+
+.signup_alt > p {
+  margin: 0px 5px;
+}
+
+.signup_other_button {
+  width: 300px;
+  display: flex;
+  background-color: white;
+  padding: 10px;
+  justify-content: center;
+  align-items: center;
+  border-radius: 30px;
+  margin: 10px 30px;
+  cursor: pointer;
+  border: 1px solid gray;
+}
+
+.signup_other_button > span {
+  color: #393a40;
+  margin-left: 10px;
+  font-weight: 500;
+  font-size: 15px;
+}
+
+.signup_login_route {
+  /* border: 1px solid red; */
+  margin: 20px 0px;
+  text-align: center;
+  font-size: 15px;
+  font-weight: 400;
+}
+
+.signup_login_route > span {
+  color: #0275d8;
+  font-weight: 700;
+  font-size: 16px;
+  cursor: pointer;
+  padding: 4px;
+  border-radius: 20px;
+}
+
+.signup_login_route > span:hover {
+  text-decoration: underline;
+}
+
+.signup_foot {
+  margin: 20px 0px 0px 0px;
+  font-size: 14px;
+  font-weight: 450;
+  color: #292b2c;
+}
+
+.signup_foot > span {
+  color: #0275d8;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.signup_foot > span:hover {
+  text-decoration: underline;
+}
