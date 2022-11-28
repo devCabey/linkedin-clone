@@ -1,5 +1,6 @@
-import { Apple, ExpandMore, LinkedIn } from "@mui/icons-material";
+import { Apple } from "@mui/icons-material";
 import React from "react";
+import AuthFooter from "../../components/authFooter/AuthFooter";
 import LoginInput from "../../components/loginInput/LoginInput";
 import "./Login.css";
 
@@ -50,25 +51,7 @@ function Login() {
         </div>
       </div>
       {/* footer */}
-      <div className="login_footer">
-        <p className="login_footer_logo">
-          Linked
-          <LinkedIn sx={{ fontSize: 17 }} />
-        </p>
-        <p className="login_copyright">&copy;2022</p>
-
-        <ul className="login_footer_list">
-          <li>User Agreement</li>
-          <li>Privacy Policy</li>
-          <li>Community Guidelines</li>
-          <li>Cookies Policy</li>
-          <li>Copyright Policy</li>
-          <li>Send Feedback</li>
-          <li>
-            Language <ExpandMore />
-          </li>
-        </ul>
-      </div>
+      <AuthFooter />
     </div>
   );
 }
