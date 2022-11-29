@@ -22,13 +22,17 @@
   display: flex;
   align-items: center;
   height: 30px;
-  border: 1px solid #1b1c1b;
+  border: 1px solid #2b2c2b;
   border-radius: 4px;
   padding: 0px 2px;
 }
 
-.signup_input_spot:hover {
+.signup_input_spot_error {
   border: 1px solid red;
+}
+
+.signup_input_spot:hover {
+  border: 2px solid black;
 }
 
 .signup_input_spot > span {

@@ -6,7 +6,11 @@ function SignupInput({ title, type, error }) {
   return (
     <div className="signup_input_container">
       <h6>{title}</h6>
-      <div className="signup_input_spot">
+      <div
+        className={`signup_input_spot  ${
+          errorMessage && "signup_input_spot_error"
+        }`}
+      >
         <input type={showPassword ? "text" : type} />
         <span
           style={{ display: type === "password" ? "" : "none" }}
