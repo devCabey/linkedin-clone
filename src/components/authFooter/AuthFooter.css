@@ -1,6 +1,29 @@
+@media only screen and (max-width: 1080px) {
+  .auth_footer_list {
+    display: grid !important;
+    grid-template-columns: 20% 20% 20% 20% 20%;
+  }
+
+  .auth_footer_list > li {
+    margin: 0px 2px 5px 2px;
+    justify-content: flex-start !important;
+  }
+}
+
+@media only screen and (max-width: 1332px) {
+  .auth_footer {
+    flex-direction: column-reverse;
+  }
+}
+
+@media only screen and (max-width: 526px) {
+  .auth_footer_list {
+    grid-template-columns: 37.5% 37.5% 37.5%;
+  }
+}
 .auth_footer {
   /* border: 1px solid red; */
-  height: 40px;
+  /* height: 40px; */
   display: flex;
   justify-content: center;
   align-items: center;
@@ -8,6 +31,12 @@
   bottom: 5px;
   width: 100%;
   background-color: white;
+}
+
+.auth_footer_head {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .auth_footer_logo {
@@ -40,6 +69,7 @@
   cursor: pointer;
   color: #35373b;
   margin-right: 15px;
+  /* white-space: nowrap; */
 }
 
 .auth_footer_list > li:hover {

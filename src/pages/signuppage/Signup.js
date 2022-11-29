@@ -14,7 +14,6 @@ const signupFooterList = [
   "Copyright Policy",
   "Brand Policy",
   "Guest Controls",
-  "Community Guidelines",
 ];
 
 function Signup() {
@@ -73,7 +72,9 @@ function Signup() {
           Looking to create a page for your business? <span>Get help</span>
         </div>
       </div>
-      <AuthFooter list={signupFooterList} />
+      <div className="signup_footer">
+        <AuthFooter list={signupFooterList} />
+      </div>
     </div>
   );
 }
