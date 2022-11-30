@@ -14,6 +14,7 @@
 .navbar_logo_wrapper > img {
   width: 120px;
   margin: 0px 10px;
+  cursor: pointer;
 }
 
 .navbar_link_wrapper {
@@ -25,7 +26,7 @@
 }
 
 .navbar_link_container {
-  border-right: 1px solid #5b5c5b;
+  border-right: 1px solid #7b6c5b;
   padding-right: 5px;
   display: flex;
   align-items: center;
