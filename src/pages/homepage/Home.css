@@ -1,10 +1,27 @@
 .home_container {
   display: flex;
+  flex: 1;
+  width: 70%;
+  margin-top: 20px;
+  /* border: 1px solid red; */
 }
 
 .home_wrapper {
-  background-color: #f3f2ef;
+  background-color: whitesmoke;
   display: flex;
   flex-direction: column;
-  align-item: center;
+  align-items: center;
+  justify-content: center;
+}
+
+.home_sidebar {
+  flex: 0.2;
+}
+
+.home_feed {
+  flex: 0.5;
+}
+
+.home-widget {
+  flex: 0.3;
 }
