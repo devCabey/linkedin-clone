@@ -157,3 +157,42 @@
   background-color: white;
   display: flex;
 }
+
+.homealt_fourth_container {
+  width: 100%;
+  height: 200px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #faf1e8;
+}
+
+.homealt_fourth_container_left {
+  width: 40%;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.homealt_fourth_container_right {
+  width: 60%;
+  display: flex;
+  align-items: center;
+}
+
+.homealt_fourth_container_right > span {
+  border: 1px solid #0275d8;
+  padding: 15px 20px;
+  border-radius: 50px;
+  font-weight: 600;
+  font-size: 20px;
+  color: #0275d8;
+  margin-left: 50px;
+}
+
+.homealt_fourth_container_left > p {
+  width: 70%;
+  font-size: 42px;
+  font-weight: 400;
+  margin-top: 30px;
+  color: #994c03;
+}

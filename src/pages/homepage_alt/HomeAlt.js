@@ -14,7 +14,7 @@ function HomeAlt() {
         <div className="homealt_first_container">
           <div className="homealt_first_container_left">
             <div className="homealt_first_left_wrapper">
-              <p>Welcome to your professional community</p>
+              <p>Millions of jobs and people hiring</p>
               <div>
                 <LoginInput type="text" placeholder="Email or Phone" />
                 <LoginInput type="password" placeholder="Password" />
@@ -70,6 +70,17 @@ function HomeAlt() {
           </div>
         </div>
       </div>
+      {/* fourth */}
+      <div className="homealt_fourth_container">
+        <div className="homealt_fourth_container_left">
+          <p>Post your job for millions to see</p>
+        </div>
+        <div className="homealt_fourth_container_right">
+          <span>Post a job</span>
+        </div>
+      </div>
+      {/* last but one */}
+      <div className="homealt_final_container"></div>
     </div>
   );
 }
