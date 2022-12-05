@@ -1,9 +1,23 @@
 import React from "react";
+import AuthFooter from "../../components/authFooter/AuthFooter";
 import HomeLinkBottom from "../../components/homelink/HomeLinkBottom";
 import HomeLinkTop from "../../components/homelink/HomeLinkTop";
 import LoginInput from "../../components/loginInput/LoginInput";
 import Navbar from "../../components/navbar/Navbar";
 import "./HomeAlt.css";
+
+const HomeAltData = [
+  "About",
+  "Accessiblilty",
+  "Community Guidelines",
+  "User Agreement",
+  "Privacy Policy",
+  "Cookie Policy",
+  "Copyright Policy",
+  "Brand Policy",
+  "Guest Controls",
+  "Community Guidelines",
+];
 
 function HomeAlt() {
   return (
@@ -80,7 +94,31 @@ function HomeAlt() {
         </div>
       </div>
       {/* last but one */}
-      <div className="homealt_final_container"></div>
+      <div className="homealt_final_container">
+        <div className="homealt_final_container_left">
+          <img
+            src="https://static-exp1.licdn.com/aero-v1/sc/h/b1fxwht7hdbeusleja7ciftsj"
+            alt="left illustration"
+          />
+          <p>Connect with people who can help</p>
+          <div>
+            <span>Find people you know</span>
+          </div>
+        </div>
+        <div className="homealt_final_container_right">
+          <img
+            src="https://static-exp1.licdn.com/aero-v1/sc/h/dkfub4sc7jgzg3o31flfr91rv"
+            alt="right illustration"
+          />
+          <p>Learn the skills you need to succeed</p>
+          <div>
+            <span>Choose a topic to learn about</span>
+          </div>
+        </div>
+      </div>
+      <div className="homealt_footer">
+        <AuthFooter list={HomeAltData} />
+      </div>
     </div>
   );
 }
