@@ -1,0 +1,48 @@
+.widget_item_wrapper {
+  display: flex;
+  background-color: white;
+  padding: 5px;
+}
+
+.widget_item_content {
+}
+
+.widget_item_content_bio {
+  margin-left: 10px;
+}
+
+.widget_item_content_bio > h4 {
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.widget_item_content_bio > h6 {
+  font-weight: 300;
+  font-size: 11px;
+  margin-top: 3px;
+}
+
+.widget_item_follow_button {
+  width: 85px;
+  height: 30px;
+  display: inline-flex;
+  margin: 10px 0px;
+  border: 1px solid black;
+  border-radius: 50px;
+  /* padding: 5px 10px; */
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.widget_item_follow_button:hover {
+  width: 83px;
+  height: 28px;
+  background-color: whitesmoke;
+  border: 2px solid black;
+}
+
+.widget_item_follow_button > p {
+  font-size: 14px;
+  font-weight: 600;
+}
