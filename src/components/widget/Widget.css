@@ -1,0 +1,14 @@
+.widget_wrapper {
+  background-color: white;
+  border: 1px solid red;
+  /* width: 100%; */
+  flex: 1;
+}
+
+.widget_head {
+}
+
+.widget_head_title {
+  display: flex;
+  justify-content: space-between;
+}

@@ -10,7 +10,6 @@ function Home() {
   return (
     <div className="home_wrapper">
       <Header />
-
       {/* App Body */}
       <div className="home_container">
         {/* Sidebar */}

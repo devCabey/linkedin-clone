@@ -1,10 +1,10 @@
 import {
-  CalendarViewDay,
-  Create,
-  EventNote,
-  Image,
-  Subscriptions,
+  CalendarToday,
+  Notes,
+  PhotoSizeSelectActual,
+  SmartDisplay,
 } from "@mui/icons-material";
+import { Avatar } from "@mui/material";
 import React from "react";
 import "./Feed.css";
 import InputOption from "./inputOption/InputOption";
@@ -13,23 +13,20 @@ function Feed() {
     <div className="feed">
       <div className="feed_inputContainer">
         <div className="feed_input">
-          <Create />
-          <form>
-            <input type="text" />
-            <button type="submit" className="">
-              Send
-            </button>
-          </form>
+          <Avatar sx={{ width: "40px", height: "40px" }} />
+          <div className="feed_input_form">
+            <p>Start a post</p>
+          </div>
         </div>
         <div className="feed_inputOptions">
-          <InputOption title="Photo" Icon={Image} color="#7005f9" />
-          <InputOption title="Video" Icon={Subscriptions} color="#E7A33F" />
-          <InputOption title="Event" Icon={EventNote} color="0C0CBCD" />
           <InputOption
-            title="Write article"
-            Icon={CalendarViewDay}
-            color="7FC15E"
+            title="Photo"
+            Icon={PhotoSizeSelectActual}
+            color="#0388fc"
           />
+          <InputOption title="Video" Icon={SmartDisplay} color="#3b8f42" />
+          <InputOption title="Event" Icon={CalendarToday} color="#a15c03" />
+          <InputOption title="Write article" Icon={Notes} color="#f56302" />
         </div>
       </div>
 
