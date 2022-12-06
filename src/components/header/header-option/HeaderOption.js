@@ -1,4 +1,4 @@
-import { ArrowDropDown, More } from "@mui/icons-material";
+import { ArrowDropDown } from "@mui/icons-material";
 import { Avatar } from "@mui/material";
 import React from "react";
 import "./HeaderOption.css";
