@@ -2,6 +2,7 @@ import { Bookmark } from "@mui/icons-material";
 import { Avatar } from "@mui/material";
 import React from "react";
 import "./Sidebar.css";
+import SidebarItem from "./sidebarItem/SidebarItem";
 function Sidebar() {
   const recentItem = (topic) => {
     return (
@@ -54,12 +55,10 @@ function Sidebar() {
       </div>
 
       <div className="sidebar_bottom">
-        <p>Recent</p>
-        {recentItem("reactjs")}
-        {recentItem("programming")}
-        {recentItem("softwareengineering")}
-        {recentItem("design")}
-        {recentItem("developer")}
+        <SidebarItem title="Recent"></SidebarItem>
+        <SidebarItem title="Groups"></SidebarItem>
+        <SidebarItem title="Events"></SidebarItem>
+        <SidebarItem title="Followed Hashtags"></SidebarItem>
       </div>
     </div>
   );

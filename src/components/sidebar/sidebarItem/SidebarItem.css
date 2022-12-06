@@ -1,0 +1,43 @@
+.sidebar_item_wrapper {
+  background-color: white;
+}
+
+.sidebar_item_title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.sidebar_item_title > p {
+  font-size: 13px;
+  font-weight: 500;
+}
+
+.sidebar_item_title_icon {
+  display: flex;
+}
+
+.sidebar_item_expand {
+  color: transparent;
+}
+
+.sidebar_item_expand:hover {
+  color: black;
+}
+
+.sidebar_item_title_icon > span {
+  height: 30px;
+  width: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 1000px;
+  cursor: pointer;
+}
+
+.sidebar_item_title_icon > span:hover {
+  background-color: lightgray;
+}
+
+.sidebar_item_content {
+}

@@ -9,6 +9,7 @@
 .sidebar_avatar {
   margin-bottom: 10px;
 }
+
 .sidebar_top_wrapper {
   border: 0.8px solid lightgray;
   border-radius: 10px;
@@ -42,6 +43,7 @@
   font-size: 13px;
   font-weight: 400;
   margin: 10px;
+  text-decoration: none;
 }
 
 .sidebar_top > h2 {
@@ -69,7 +71,7 @@
 
 .sidebar_stat > p {
   color: #444;
-  font-size: 11px;
+  font-size: 12px;
   font-weight: 600;
 }
 
