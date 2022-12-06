@@ -1,5 +1,6 @@
 import {
   CalendarToday,
+  ExpandMore,
   Notes,
   PhotoSizeSelectActual,
   SmartDisplay,
@@ -32,9 +33,17 @@ function Feed() {
           <InputOption title="Write article" Icon={Notes} color="#f56302" />
         </div>
       </div>
-
+      <div className="feed_post_sort">
+        <span></span>
+        <div className="feed_post_sort_content">
+          Sort by:
+          <span>
+            Top <ExpandMore />
+          </span>
+        </div>
+      </div>
       {/* Posts */}
-      <div>
+      <div className="feed_post_wrapper">
         <div className="new"></div>
       </div>
     </div>
