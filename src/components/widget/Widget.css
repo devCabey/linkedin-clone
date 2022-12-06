@@ -71,7 +71,8 @@
 
 .widget_links > ul {
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
+  align-items: center;
   flex-wrap: wrap;
   list-style: none;
 }
