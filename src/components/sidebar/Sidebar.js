@@ -22,6 +22,7 @@ function Sidebar() {
           />
           <Avatar
             className="sidebar_avatar"
+            src="https://media.istockphoto.com/id/1179588723/photo/close-up-portrait-of-his-he-nice-attractive-funny-confused-brunet-bearded-guy-wearing-pink.jpg?s=612x612&w=0&k=20&c=nhgnEZKvA1yxYhnSQ-hD4fHFQr7xGn2TwJnatCdssK4="
             sx={{ width: "60px", height: "60px" }}
           />
           <h2>Caleb Okyere</h2>
