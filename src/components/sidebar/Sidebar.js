@@ -1,13 +1,15 @@
-import { Bookmark } from "@mui/icons-material";
+import { Bookmark, ExpandMore, Groups, Tag, Wallet } from "@mui/icons-material";
 import { Avatar } from "@mui/material";
 import React from "react";
 import "./Sidebar.css";
 import SidebarItem from "./sidebarItem/SidebarItem";
 function Sidebar() {
-  const recentItem = (topic) => {
+  const recentItem = (topic, Icon) => {
     return (
       <div className="sidebar_recentItem">
-        <span className="sidebar_hash">#</span>
+        <span className="sidebar_hash">
+          {Icon && <Icon sx={{ fontSize: "13px" }} />}
+        </span>
         <p>{topic}</p>
       </div>
     );
@@ -55,10 +57,32 @@ function Sidebar() {
       </div>
 
       <div className="sidebar_bottom">
-        <SidebarItem title="Recent"></SidebarItem>
-        <SidebarItem title="Groups"></SidebarItem>
-        <SidebarItem title="Events"></SidebarItem>
-        <SidebarItem title="Followed Hashtags"></SidebarItem>
+        <SidebarItem title="Recent">
+          {recentItem("Agile Portfolio", Wallet)}
+          {recentItem("UK Virtual Tech Jobs Fair ", Wallet)}
+          {recentItem("User Experience and Design", Groups)}
+          {recentItem("The Code Project", Groups)}
+          {recentItem("mobileapplications", Tag)}
+        </SidebarItem>
+        <SidebarItem title="Groups">
+          {recentItem("User Experience and Design", Groups)}
+          {recentItem("The Code Project", Groups)}
+          {recentItem("See all")}
+        </SidebarItem>
+        <SidebarItem title="Events">
+          {recentItem("UK Virtual Tech Jobs Fair ", Wallet)}
+          {recentItem("Agile Portfolio: A Catalyst", Wallet)}
+          {recentItem("See all")}
+        </SidebarItem>
+        <SidebarItem title="Followed Hashtags">
+          {recentItem("mobileapplications", Tag)}
+          {recentItem("devops", Tag)}
+          {recentItem("theafricawewant", Tag)}
+          {recentItem("Show More", ExpandMore)}
+        </SidebarItem>
+        <div className="sidebar_discover">
+          <p>Discover more</p>
+        </div>
       </div>
     </div>
   );

@@ -1,4 +1,4 @@
-import { East, Expand, ExpandMore, Info } from "@mui/icons-material";
+import { East, ExpandMore, Info } from "@mui/icons-material";
 import React from "react";
 import "./Widget.css";
 import WidgetItem from "./widgetItem/WidgetItem";

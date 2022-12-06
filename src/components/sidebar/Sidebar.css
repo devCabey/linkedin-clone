@@ -1,6 +1,6 @@
 .sidebar_container {
-  /* position: sticky;
-  top: 80px; */
+  position: sticky;
+  top: -320px;
   border-radius: 10px;
   text-align: center;
   height: fit-content;
@@ -145,7 +145,7 @@
 }
 .sidebar_bottom {
   text-align: left;
-  padding: 10px;
+  padding: 10px 0px 0px 0px;
   border: 0.5px solid lightgray;
   background-color: white;
   border-radius: 10px;
@@ -159,17 +159,31 @@
 
 .sidebar_recentItem {
   display: flex;
-  font-size: 13px;
   color: gray;
-  font-weight: bolder;
   cursor: pointer;
-  margin-bottom: 5px;
-  padding: 5px;
+  margin-bottom: 3px;
+  padding: 5px 10px;
 }
-
+.sidebar_recentItem > p {
+  margin-left: 3px;
+  font-size: 12px;
+  font-weight: 500;
+}
 .sidebar_recentItem:hover {
   background-color: whitesmoke;
-  border-radius: 10px;
   cursor: pointer;
   color: black;
+}
+
+.sidebar_discover {
+  /* border: 1px solid red; */
+  text-align: center;
+  padding: 10px;
+  cursor: pointer;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+
+.sidebar_discover:hover {
+  background-color: lightgray;
 }

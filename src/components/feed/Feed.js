@@ -34,6 +34,9 @@ function Feed() {
       </div>
 
       {/* Posts */}
+      <div>
+        <div className="new"></div>
+      </div>
     </div>
   );
 }
