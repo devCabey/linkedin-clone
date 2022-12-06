@@ -13,7 +13,10 @@ function Feed() {
     <div className="feed">
       <div className="feed_inputContainer">
         <div className="feed_input">
-          <Avatar sx={{ width: "40px", height: "40px" }} />
+          <Avatar
+            sx={{ width: "40px", height: "40px" }}
+            src="https://media.istockphoto.com/id/1179588723/photo/close-up-portrait-of-his-he-nice-attractive-funny-confused-brunet-bearded-guy-wearing-pink.jpg?s=612x612&w=0&k=20&c=nhgnEZKvA1yxYhnSQ-hD4fHFQr7xGn2TwJnatCdssK4="
+          />
           <div className="feed_input_form">
             <p>Start a post</p>
           </div>

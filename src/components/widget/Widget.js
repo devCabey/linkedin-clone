@@ -13,10 +13,26 @@ function Widget() {
         </div>
         {/* accounts */}
         <>
-          <WidgetItem />
-          <WidgetItem />
-          <WidgetItem />
-          <WidgetItem />
+          <WidgetItem
+            image="https://imageio.forbes.com/specials-images/imageserve/5f64397931669e167fc57eaf/0x0.jpg?format=jpg&width=1200"
+            name="Blossom Dugabtey"
+            description="||Software Engineer || Typescript || Nodejs || Expressjs || Reactjs"
+          />
+          <WidgetItem
+            image="https://ichef.bbci.co.uk/news/2048/cpsprodpb/B1FA/production/_113126554_patrick_george10pilston.jpg"
+            name="Orison Tetteh"
+            description="Software Developer | HTML | CSS | Javascript | Boostrap | Reactjs"
+          />
+          <WidgetItem
+            image="https://res.cloudinary.com/crunchbase-production/image/upload/c_lpad,h_170,w_170,f_auto,b_white,q_auto:eco,dpr_1/yg15u7nbznugdewx7ltu"
+            name="Jobly Ghana"
+            description="Company . Staffing and Recruiting"
+          />
+          <WidgetItem
+            image="https://caaas.rice.edu/sites/g/files/bxs2616/files/2019-10/tony-brown.jpg"
+            name="Kofi Mensah"
+            description="Software Engineering(Frontend Dev)"
+          />
         </>
         <span className="widget_head_footer">
           <p>View all recommendations</p>
