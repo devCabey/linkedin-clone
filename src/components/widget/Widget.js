@@ -1,4 +1,4 @@
-import { East, Info } from "@mui/icons-material";
+import { East, Expand, ExpandMore, Info } from "@mui/icons-material";
 import React from "react";
 import "./Widget.css";
 import WidgetItem from "./widgetItem/WidgetItem";
@@ -16,7 +16,7 @@ function Widget() {
           <WidgetItem
             image="https://imageio.forbes.com/specials-images/imageserve/5f64397931669e167fc57eaf/0x0.jpg?format=jpg&width=1200"
             name="Blossom Dugabtey"
-            description="||Software Engineer || Typescript || Nodejs || Expressjs || Reactjs"
+            description="|| Software Engineer || Typescript || Nodejs || Expressjs || Reactjs"
           />
           <WidgetItem
             image="https://ichef.bbci.co.uk/news/2048/cpsprodpb/B1FA/production/_113126554_patrick_george10pilston.jpg"
@@ -39,8 +39,35 @@ function Widget() {
           <East sx={{ fontSize: "16px" }} />
         </span>
       </div>
-      <div className="widget_bottom"></div>
-      <div className="widget_links"></div>
+      <div className="widget_sticky">
+        <div className="widget_bottom">
+          <img
+            src="https://media-exp1.licdn.com/dms/image/C4D08AQEjFDHYBL1LbQ/croft-frontend-shrinkToFit1024/0/1618353108823?e=2147483647&v=beta&t=mofX44aFMJUDtS0NAyvYtLdmg7ew9BjOQFaPviUqXj8"
+            alt="See who is hiring"
+          />
+        </div>
+        <div className="widget_links">
+          <ul>
+            <li>About</li>
+            <li>Accessiblity</li>
+            <li>Help Center</li>
+            <li>
+              Privacy & Terms <ExpandMore />
+            </li>
+            <li>Ad Choices</li>
+            <li>Advertising</li>
+            <li>
+              Business Services <ExpandMore />
+            </li>
+            <li>Get the Linkedin app</li>
+            <li>More</li>
+          </ul>
+          <div className="widget_link_footer">
+            <img src="./images/linkedin-alt.png" alt="linkedin-logo" />
+            <p>Linkedin Coporation &copy; 2022</p>
+          </div>
+        </div>
+      </div>
     </div>
   );
 }
