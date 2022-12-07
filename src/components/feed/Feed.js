@@ -9,6 +9,7 @@ import { Avatar } from "@mui/material";
 import React from "react";
 import "./Feed.css";
 import InputOption from "./inputOption/InputOption";
+import Post from "./post/Post";
 function Feed() {
   return (
     <div className="feed">
@@ -44,6 +45,7 @@ function Feed() {
       </div>
       {/* Posts */}
       <div className="feed_post_wrapper">
+        <Post />
         <div className="new"></div>
       </div>
     </div>
