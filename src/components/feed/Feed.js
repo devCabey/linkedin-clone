@@ -46,7 +46,8 @@ function Feed() {
       {/* Posts */}
       <div className="feed_post_wrapper">
         <Post />
-        <div className="new"></div>
+        <Post />
+        <Post />
       </div>
     </div>
   );
