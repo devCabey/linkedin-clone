@@ -25,18 +25,24 @@
 .header_search {
   padding: 5px;
   display: flex;
-  flex: 1;
+  /* flex: 1; */
   align-items: center;
   border-radius: 5px;
   height: 30px;
   color: gray;
   background-color: #eef3f8;
+  transition: 0.5s linear;
 }
 
 .header_search > input {
+  flex: 1;
   outline: none;
   border: none;
   background: none;
+}
+
+.header_search:hover {
+  flex: 1;
 }
 
 .header_right {
