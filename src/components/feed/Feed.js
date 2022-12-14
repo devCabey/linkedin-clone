@@ -4,6 +4,8 @@ import {
   getDoc,
   addDoc,
   serverTimestamp,
+  query,
+  orderBy,
 } from "firebase/firestore/lite";
 
 import {
@@ -33,7 +35,8 @@ const sendPost = async (e) => {
 };
 
 const getPost = async (setPosts) => {
-  const querySnapshot = await getDoc(collection(db, "posts"));
+  const postRef = await getDoc(collection(db, "posts"));
+  const querySnapshot = query(postRef, orderBy("timestamp"));
   setPosts(querySnapshot.map((doc) => ({ id: doc.id, data: doc.data() })));
 };
 

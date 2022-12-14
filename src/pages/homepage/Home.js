@@ -5,28 +5,39 @@ import Feed from "../../components/feed/Feed";
 import Header from "../../components/header/Header";
 import Sidebar from "../../components/sidebar/Sidebar";
 import Widget from "../../components/widget/Widget";
+import { useSelector } from "react-redux";
+import { selectUser } from "../../redux/userSlice";
+// import Login from "../loginpage/Login";
+import HomeAlt from "../homepage_alt/HomeAlt";
 
 function Home() {
+  const user = useSelector(selectUser);
   return (
-    <div className="home_wrapper">
-      <Header />
-      {/* App Body */}
-      <div className="home_container">
-        {/* Sidebar */}
-        <div className="home_sidebar">
-          <Sidebar />
-        </div>
+    <div>
+      {user ? (
+        <div className="home_wrapper">
+          <Header />
+          {/* App Body */}
+          <div className="home_container">
+            {/* Sidebar */}
+            <div className="home_sidebar">
+              <Sidebar />
+            </div>
 
-        {/* feed */}
-        <div className="home_feed">
-          <Feed />
-        </div>
+            {/* feed */}
+            <div className="home_feed">
+              <Feed />
+            </div>
 
-        {/* widget */}
-        <div className="home_widget">
-          <Widget />
+            {/* widget */}
+            <div className="home_widget">
+              <Widget />
+            </div>
+          </div>
         </div>
-      </div>
+      ) : (
+        <HomeAlt />
+      )}
     </div>
   );
 }
