@@ -1,12 +1,12 @@
-import React, { useEffect, useState } from "react";
-import {
-  collection,
-  getDoc,
-  addDoc,
-  serverTimestamp,
-  query,
-  orderBy,
-} from "firebase/firestore/lite";
+import React, { useState } from "react";
+// import {
+//   collection,
+//   getDoc,
+//   addDoc,
+//   serverTimestamp,
+//   query,
+//   orderBy,
+// } from "firebase/firestore/lite";
 
 import {
   CalendarToday,
@@ -21,24 +21,24 @@ import "./Feed.css";
 import InputOption from "./inputOption/InputOption";
 import Post from "./post/Post";
 
-import { db } from "../../firebase";
+// import { db } from "../../firebase";
 
-const sendPost = async (e) => {
-  e.preventDefault();
-  await addDoc(collection(db, "posts"), {
-    name: "Caleb Okyere",
-    decription: "This is a test",
-    message: "input",
-    photo: "",
-    timestamp: serverTimestamp(),
-  });
-};
+// const sendPost = async (e) => {
+//   e.preventDefault();
+//   await addDoc(collection(db, "posts"), {
+//     name: "Caleb Okyere",
+//     decription: "This is a test",
+//     message: "input",
+//     photo: "",
+//     timestamp: serverTimestamp(),
+//   });
+// };
 
-const getPost = async (setPosts) => {
-  const postRef = await getDoc(collection(db, "posts"));
-  const querySnapshot = query(postRef, orderBy("timestamp"));
-  setPosts(querySnapshot.map((doc) => ({ id: doc.id, data: doc.data() })));
-};
+// const getPost = async (setPosts) => {
+//   const postRef = await getDoc(collection(db, "posts"));
+//   const querySnapshot = query(postRef, orderBy("timestamp"));
+//   setPosts(querySnapshot.map((doc) => ({ id: doc.id, data: doc.data() })));
+// };
 
 function Feed() {
   const [posts, setPosts] = useState([]);
