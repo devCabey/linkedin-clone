@@ -29,8 +29,8 @@ function ErrorPage() {
           alt="illustration"
         />
       )}
-
-      <i>!! {error.statusText || error.messsage} !!</i>
+      <p>Sorry, an unexpected error has occurred.</p>
+      <i> {error.statusText || error.messsage} </i>
     </div>
   );
 }

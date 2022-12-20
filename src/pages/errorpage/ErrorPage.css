@@ -12,8 +12,14 @@
   width: 300px;
 }
 
-.error_wrapper > i {
-  font-size: 20px;
+.error_wrapper > p {
   font-weight: 500;
-  color: blue;
+  text-align: center;
+}
+
+.error_wrapper > i {
+  font-size: 15px;
+  font-weight: 500;
+  color: #9a9a9a;
+  margin: 10px 0px;
 }
