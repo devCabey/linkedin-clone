@@ -19,19 +19,16 @@ function App() {
       children: [],
     },
     {
-      path: "/signin",
+      path: "signin",
       element: <Login />,
-      // errorElement: <ErrorPage />,
     },
     {
-      path: "/signup",
+      path: "signup",
       element: <Signup />,
-      // errorElement: <ErrorPage />,
     },
     {
-      path: "/feed",
+      path: "feed",
       element: <Home />,
-      // errorElement: <ErrorPage />,
     },
   ]);
   return (

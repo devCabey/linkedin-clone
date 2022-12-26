@@ -1,3 +1,25 @@
+@media only screen and (max-width: 1024px) {
+  .navbar_link_container {
+    display: none;
+  }
+
+  .navbar_link_wrapper {
+    justify-content: flex-end;
+    align-items: center;
+  }
+}
+
+@media only screen and (min-width: 1025px) {
+  .navbar_link_container {
+    display: flex;
+  }
+
+  .navbar_link_wrapper {
+    justify-content: center;
+    align-items: center;
+  }
+}
+
 .navbar_container {
   width: 100%;
   display: flex;
@@ -5,7 +27,7 @@
 }
 
 .navbar_logo_wrapper {
-  width: 35%;
+  width: 25%;
   /* border: 1px solid red; */
   display: flex;
   justify-content: center;
@@ -21,14 +43,13 @@
   /* border: 1px solid red; */
   width: 65%;
   display: flex;
-  justify-content: center;
-  align-items: center;
+  /* justify-content: center;
+  align-items: center; */
 }
 
 .navbar_link_container {
   border-right: 1px solid #7b6c5b;
   padding-right: 5px;
-  display: flex;
   align-items: center;
   /* justify-content: space-around; */
   list-style-type: none;
