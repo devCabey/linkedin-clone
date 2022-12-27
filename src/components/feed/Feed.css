@@ -1,3 +1,17 @@
+@media only screen and (max-width: 360px) {
+  .feed_profile_hide {
+    width: 100%;
+    display: block;
+    margin-bottom: 10px;
+  }
+}
+
+@media only screen and (min-width: 360px) {
+  .feed_profile_hide {
+    display: none;
+  }
+}
+
 .feed {
   margin: 0px 20px;
 }
@@ -80,4 +94,3 @@
 .feed_post_wrapper {
   margin-top: 10px;
 }
-

@@ -1,9 +1,18 @@
-import { Bookmark, ExpandMore, Groups, Tag, Wallet } from "@mui/icons-material";
+import {
+  Bookmark,
+  ExpandLess,
+  ExpandMore,
+  Groups,
+  Tag,
+  Wallet,
+} from "@mui/icons-material";
 import { Avatar } from "@mui/material";
-import React from "react";
+import React, { useState } from "react";
 import "./Sidebar.css";
 import SidebarItem from "./sidebarItem/SidebarItem";
 function Sidebar() {
+  const [show, setShow] = useState(true);
+
   const recentItem = (topic, Icon) => {
     return (
       <div className="sidebar_recentItem">
@@ -38,56 +47,80 @@ function Sidebar() {
             Software Engineer(Fullstack)-Javascript ||Typescript || Python
           </h4>
         </div>
-        <div className="sidebar_stats">
-          <div className="sidebar_stat">
-            <p>Who's viewed your profile</p>
-            <p className="sidebar_statNum">102</p>
-          </div>
-          <div className="sidebar_stat">
-            <p>Impression of your post</p>
-            <p className="sidebar_statNum">827</p>
-          </div>
-        </div>
-        <div className="sidebar_premium">
-          <p>Access exclusive tools & insights</p>
-          <div className="sidebar_premium_link">
-            <span></span>
-            <h5>Get Hired Faster, Try Premium Free</h5>
-          </div>
-        </div>
-        <div className="sidebar_item_link">
-          <Bookmark sx={{ fontSize: "16px", color: "#4a4a4a" }} />
-          <p>My items</p>
-        </div>
+        {show ? (
+          <>
+            <div className="sidebar_stats">
+              <div className="sidebar_stat">
+                <p>Who's viewed your profile</p>
+                <p className="sidebar_statNum">102</p>
+              </div>
+              <div className="sidebar_stat">
+                <p>Impression of your post</p>
+                <p className="sidebar_statNum">827</p>
+              </div>
+            </div>
+            <div className="sidebar_premium">
+              <p>Access exclusive tools & insights</p>
+              <div className="sidebar_premium_link">
+                <span></span>
+                <h5>Get Hired Faster, Try Premium Free</h5>
+              </div>
+            </div>
+            <div className="sidebar_item_link">
+              <Bookmark sx={{ fontSize: "16px", color: "#4a4a4a" }} />
+              <p>My items</p>
+            </div>
+          </>
+        ) : (
+          <></>
+        )}
       </div>
 
-      <div className="sidebar_bottom">
-        <SidebarItem title="Recent">
-          {recentItem("Agile Portfolio", Wallet)}
-          {recentItem("UK Virtual Tech Jobs Fair ", Wallet)}
-          {recentItem("User Experience and Design", Groups)}
-          {recentItem("The Code Project", Groups)}
-          {recentItem("mobileapplications", Tag)}
-        </SidebarItem>
-        <SidebarItem title="Groups">
-          {recentItem("User Experience and Design", Groups)}
-          {recentItem("The Code Project", Groups)}
-          {recentItem("See all")}
-        </SidebarItem>
-        <SidebarItem title="Events">
-          {recentItem("UK Virtual Tech Jobs Fair ", Wallet)}
-          {recentItem("Agile Portfolio: A Catalyst", Wallet)}
-          {recentItem("See all")}
-        </SidebarItem>
-        <SidebarItem title="Followed Hashtags">
-          {recentItem("mobileapplications", Tag)}
-          {recentItem("devops", Tag)}
-          {recentItem("theafricawewant", Tag)}
-          {recentItem("Show More", ExpandMore)}
-        </SidebarItem>
-        <div className="sidebar_discover">
-          <p>Discover more</p>
+      {show ? (
+        <div className="sidebar_bottom">
+          <SidebarItem title="Recent">
+            {recentItem("Agile Portfolio", Wallet)}
+            {recentItem("UK Virtual Tech Jobs Fair ", Wallet)}
+            {recentItem("User Experience and Design", Groups)}
+            {recentItem("The Code Project", Groups)}
+            {recentItem("mobileapplications", Tag)}
+          </SidebarItem>
+          <SidebarItem title="Groups">
+            {recentItem("User Experience and Design", Groups)}
+            {recentItem("The Code Project", Groups)}
+            {recentItem("See all")}
+          </SidebarItem>
+          <SidebarItem title="Events">
+            {recentItem("UK Virtual Tech Jobs Fair ", Wallet)}
+            {recentItem("Agile Portfolio: A Catalyst", Wallet)}
+            {recentItem("See all")}
+          </SidebarItem>
+          <SidebarItem title="Followed Hashtags">
+            {recentItem("mobileapplications", Tag)}
+            {recentItem("devops", Tag)}
+            {recentItem("theafricawewant", Tag)}
+            {recentItem("Show More", ExpandMore)}
+          </SidebarItem>
+          <div className="sidebar_discover">
+            <p>Discover more</p>
+          </div>
         </div>
+      ) : (
+        <></>
+      )}
+      <div className="sidebar_showmore" onClick={() => setShow(!show)}>
+        <span>
+          Show{" "}
+          {show ? (
+            <>
+              Less <ExpandLess />
+            </>
+          ) : (
+            <>
+              More <ExpandMore />
+            </>
+          )}
+        </span>
       </div>
     </div>
   );

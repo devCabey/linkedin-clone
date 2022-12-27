@@ -1,3 +1,15 @@
+@media only screen and (max-width: 360px) {
+  .sidebar_showmore {
+    display: flex;
+  }
+}
+
+@media only screen and (min-width: 360px) {
+  .sidebar_showmore {
+    display: none;
+  }
+}
+
 .sidebar_container {
   position: sticky;
   top: -320px;
@@ -200,4 +212,22 @@
 
 .sidebar_discover:hover {
   background-color: lightgray;
+}
+
+.sidebar_showmore {
+  justify-content: center;
+  align-items: center;
+  margin: 10px;
+  background: none;
+  cursor: pointer;
+}
+
+.sidebar_showmore > span {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.sidebar_showmore > span:hover {
+  color: #4f4f4f;
 }

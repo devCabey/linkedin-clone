@@ -20,6 +20,8 @@ import { Avatar } from "@mui/material";
 import "./Feed.css";
 import InputOption from "./inputOption/InputOption";
 import Post from "./post/Post";
+import SidebarProfile from "../sidebar/SidebarProfile";
+import Sidebar from "../sidebar/Sidebar";
 
 // import { db } from "../../firebase";
 
@@ -45,6 +47,9 @@ function Feed() {
 
   return (
     <div className="feed">
+      <div className="feed_profile_hide">
+        <Sidebar />
+      </div>
       <div className="feed_inputContainer">
         <div className="feed_input">
           <Avatar
@@ -77,7 +82,11 @@ function Feed() {
       </div>
       {/* Posts */}
       <div className="feed_post_wrapper">
-        {posts && posts.map((post) => <Post key="heres" />)}
+        {/* {posts && posts.map((post) => <Post key="heres" />)} */}
+
+        <Post />
+        <Post />
+        <Post />
       </div>
     </div>
   );

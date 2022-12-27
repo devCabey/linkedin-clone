@@ -14,26 +14,27 @@ function Home() {
   // const user = useSelector(selectUser);
   return (
     // <div>
-      <div className="home_wrapper">
-        <Header />
-        {/* App Body */}
-        <div className="home_container">
-          {/* Sidebar */}
-          <div className="home_sidebar">
-            <Sidebar />
-          </div>
+    <div className="home_wrapper">
+      {/* <Header /> */}
 
-          {/* feed */}
-          <div className="home_feed">
-            <Feed />
-          </div>
+      {/* App Body */}
+      <div className="home_container">
+        {/* Sidebar */}
+        <div className="home_sidebar">
+          <Sidebar />
+        </div>
 
-          {/* widget */}
-          <div className="home_widget">
-            <Widget />
-          </div>
+        {/* feed */}
+        <div className="home_feed">
+          <Feed />
+        </div>
+
+        {/* widget */}
+        <div className="home_widget">
+          <Widget />
         </div>
       </div>
+    </div>
     //  </div>
   );
 }
