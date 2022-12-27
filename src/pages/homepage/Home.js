@@ -15,7 +15,9 @@ function Home() {
   return (
     // <div>
     <div className="home_wrapper">
-      {/* <Header /> */}
+      <div className="home_header">
+        <Header />
+      </div>
 
       {/* App Body */}
       <div className="home_container">

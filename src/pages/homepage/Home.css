@@ -1,4 +1,8 @@
 @media only screen and (max-width: 360px) {
+  .home_header {
+    min-width: 560px;
+  }
+
   .home_container {
     width: 100%;
   }
@@ -76,4 +80,8 @@
   align-items: center;
   justify-content: center;
   /* background-color: black; */
+}
+
+.home_header {
+  width: 100%;
 }
