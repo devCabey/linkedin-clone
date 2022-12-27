@@ -155,4 +155,6 @@
 .signup_footer {
   position: relative;
   height: 12%;
+  padding: 10px;
+  margin-top: 20px;
 }
