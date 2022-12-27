@@ -142,3 +142,7 @@
   background-color: rgba(0, 86, 245, 0.3);
 }
 
+.login_footer {
+  position: relative;
+  height: 200px;
+}

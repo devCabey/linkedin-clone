@@ -60,7 +60,9 @@ function Login() {
         </div>
       </div>
       {/* footer */}
-      <AuthFooter list={loginFooterList} />
+      <div className="login_footer">
+        <AuthFooter list={loginFooterList} />
+      </div>
     </div>
   );
 }
