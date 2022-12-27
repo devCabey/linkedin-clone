@@ -18,12 +18,16 @@
   flex: 1;
   border: none;
   height: 45px;
-  width: 250px;
+  width: 95%;
   outline-width: 0px;
   outline: none;
-  background: none;
+  background: white;
   font-size: 16px;
   font-weight: 500;
+}
+
+.loginInput_wrapper > div > input:focus {
+  background: none;
 }
 
 .loginInput_wrapper > div > input:focus::-webkit-input-placeholder {

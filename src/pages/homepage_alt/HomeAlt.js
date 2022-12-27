@@ -21,7 +21,7 @@ const HomeAltData = [
 
 function HomeAlt() {
   return (
-    <div>
+    <div className="homealt_wrapper">
       {/* First  */}
       <div>
         <Navbar />
@@ -87,7 +87,7 @@ function HomeAlt() {
       {/* fourth */}
       <div className="homealt_fourth_container">
         <div className="homealt_fourth_container_left">
-          <p>Post your job for millions to see</p>
+          <p>Post your job for millions of people to see</p>
         </div>
         <div className="homealt_fourth_container_right">
           <span>Post a job</span>

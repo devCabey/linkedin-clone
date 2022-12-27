@@ -18,7 +18,11 @@
 
 @media only screen and (max-width: 526px) {
   .auth_footer_list {
-    grid-template-columns: 37.5% 37.5% 37.5%;
+    grid-template-columns: 50% 50%;
+  }
+
+  .auth_footer_list > li {
+    margin-bottom: 10px;
   }
 }
 .auth_footer {
@@ -69,6 +73,7 @@
   cursor: pointer;
   color: #35373b;
   margin-right: 15px;
+
   /* white-space: nowrap; */
 }
 

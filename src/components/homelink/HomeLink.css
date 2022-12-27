@@ -1,3 +1,26 @@
+@media screen and (max-width: 930px) {
+  .homelink_links > li {
+    font-size: 12px;
+    font-weight: 500;
+  }
+
+  .homelink_links_bottom > li {
+    font-size: 12px;
+    font-weight: 500;
+  }
+}
+
+@media screen and (min-width: 930px) {
+  .homelink_links > li {
+    font-size: 18px;
+    font-weight: 550;
+  }
+  .homelink_links_bottom > li {
+    font-size: 18px;
+    font-weight: 550;
+  }
+}
+
 .homelink_container {
 }
 
@@ -27,8 +50,6 @@
   border-radius: 100px;
   white-space: nowrap;
   margin: 5px;
-  font-size: 18px;
-  font-weight: 550;
   cursor: pointer;
   color: #292b2c;
 }
@@ -59,8 +80,6 @@
   border-radius: 100px;
   white-space: nowrap;
   margin: 5px;
-  font-size: 18px;
-  font-weight: 550;
   cursor: pointer;
   color: #292b2c;
 }
