@@ -87,7 +87,16 @@
   color: #1b1c1b;
 }
 
-.navbar_link_container > li > span {
+.navbar_link_style {
+  text-decoration: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: #7b7c7b;
+}
+
+.navbar_link_style > span {
   font-size: 15px;
   font-weight: 500;
 }

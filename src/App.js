@@ -14,6 +14,10 @@ import Job from "./pages/jobpage/Job";
 import Message from "./pages/messagepage/Message";
 import Notification from "./pages/notificationpage/Notification";
 import Profile from "./pages/profilepage/Profile";
+import JobAlt from "./pages/jobpagealt/JobAlt";
+import Discover from "./pages/discoverpage/Discover";
+import Learning from "./pages/learningpage/Learning";
+import People from "./pages/peoplepage/People";
 
 function App() {
   const router = createBrowserRouter([
@@ -34,7 +38,6 @@ function App() {
     {
       path: "feed",
       element: <Home />,
-      
     },
     {
       path: "network",
@@ -55,6 +58,22 @@ function App() {
     {
       path: "profile",
       element: <Profile />,
+    },
+    {
+      path: "jobalt",
+      element: <JobAlt />,
+    },
+    {
+      path: "discover",
+      element: <Discover />,
+    },
+    {
+      path: "people",
+      element: <People />,
+    },
+    {
+      path: "learning",
+      element: <Learning />,
     },
   ]);
   return (

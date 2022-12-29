@@ -17,20 +17,28 @@ function Navbar() {
       <div className="navbar_link_wrapper">
         <ul className="navbar_link_container">
           <li>
-            <Explore sx={{ fontSize: "25px" }} />
-            <span>Discover</span>
+            <Link to="/discover" className="navbar_link_style">
+              <Explore sx={{ fontSize: "25px" }} />
+              <span>Discover</span>
+            </Link>
           </li>
           <li>
-            <People sx={{ fontSize: "25px" }} />
-            <span>People</span>
+            <Link to="/people" className="navbar_link_style">
+              <People sx={{ fontSize: "25px" }} />
+              <span>People</span>
+            </Link>
           </li>
           <li>
-            <Slideshow sx={{ fontSize: "25px" }} />
-            <span>Learning</span>
+            <Link to="/learning" className="navbar_link_style">
+              <Slideshow sx={{ fontSize: "25px" }} />
+              <span>Learning</span>
+            </Link>
           </li>
           <li>
-            <BusinessCenter sx={{ fontSize: "25px" }} />
-            <span>Jobs</span>
+            <Link to="/jobalt" className="navbar_link_style">
+              <BusinessCenter sx={{ fontSize: "25px" }} />
+              <span>Jobs</span>
+            </Link>
           </li>
         </ul>
         <div className="navbar_auth_link_container">
