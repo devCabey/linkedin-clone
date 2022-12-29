@@ -1,10 +1,15 @@
 import {
   Home,
   SearchOutlined,
-  SupervisorAccount,
   BusinessCenter,
   Chat,
   Notifications,
+  People,
+  PeopleAlt,
+  Work,
+  Forum,
+  NotificationsActive,
+  House,
 } from "@mui/icons-material";
 import React from "react";
 import HeaderOption from "./header-option/HeaderOption";
@@ -21,17 +26,29 @@ function Header() {
         </div>
       </div>
       <div className="header_right">
-        <HeaderOption title="Home" Icon={Home} to="/feed" />
+        <HeaderOption title="Home" Icon={Home} to="/feed" Option={House} />
         <HeaderOption
           title="My Network"
-          Icon={SupervisorAccount}
+          Icon={PeopleAlt}
+          Option={People}
           to="/network"
         />
-        <HeaderOption title="Jobs" Icon={BusinessCenter} to="/jobs" />
-        <HeaderOption title="Messaging" Icon={Chat} to="/message" />
+        <HeaderOption
+          title="Jobs"
+          Icon={BusinessCenter}
+          Option={Work}
+          to="/jobs"
+        />
+        <HeaderOption
+          title="Messaging"
+          Icon={Chat}
+          Option={Forum}
+          to="/message"
+        />
         <HeaderOption
           title="Notification"
           Icon={Notifications}
+          Option={NotificationsActive}
           to="/notification"
         />
         <HeaderOption

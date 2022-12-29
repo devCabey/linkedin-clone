@@ -2,14 +2,14 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  height: 40px;
+  height: 34px;
   color: gray;
   cursor: pointer;
   padding: 5px 10px 10px 10px;
 }
 
 .headerOption_container:hover {
-  height: 38px;
+  height: 32px;
   color: black;
   border-bottom: 2px solid black;
 }
@@ -30,6 +30,13 @@
   object-fit: contain;
   height: 25px !important;
   width: 25px !important;
+}
+
+.headerOption_icon_active {
+  object-fit: contain;
+  height: 25px !important;
+  width: 25px !important;
+  color: black;
 }
 
 .headerOption_link {
