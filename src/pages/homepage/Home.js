@@ -2,7 +2,6 @@ import React from "react";
 import "./Home.css";
 
 import Feed from "../../components/feed/Feed";
-import Header from "../../components/header/Header";
 import Sidebar from "../../components/sidebar/Sidebar";
 import Widget from "../../components/widget/Widget";
 import HomeWrapper from "../../hoc/homeWrapper/HomeWrapper";
