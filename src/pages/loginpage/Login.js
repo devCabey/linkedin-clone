@@ -3,6 +3,7 @@ import React from "react";
 import AuthFooter from "../../components/authFooter/AuthFooter";
 import LoginInput from "../../components/loginInput/LoginInput";
 import "./Login.css";
+import { Link } from "react-router-dom";
 
 const loginFooterList = [
   "User Agreement",
@@ -17,9 +18,9 @@ function Login() {
   return (
     <div className="login_page">
       {/* header */}
-      <div className="login_header">
+      <Link to="/" className="login_header">
         <img src="./images/linkedin-alt.png" alt="linkedin-logo" />
-      </div>
+      </Link>
       {/* content */}
       <div className="login_content_wrapper">
         <div className="login_content_container">
@@ -53,10 +54,11 @@ function Login() {
               <span>Sign in with Apple </span>
             </div>
           </div>
-
-          <p className="login_signup_route">
-            New LinkedIn? <span>Join now</span>
-          </p>
+          <div className="login_signup_route">
+            <Link to="/signup" className="login_signup_route">
+              New LinkedIn? <span>Join now</span>
+            </Link>
+          </div>
         </div>
       </div>
       {/* footer */}

@@ -115,3 +115,7 @@
 .navbar_auth_link_container > span:first-child:hover {
   background-color: whitesmoke;
 }
+.navbar_link {
+  text-decoration: none;
+  color: #2f2f2f;
+}

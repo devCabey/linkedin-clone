@@ -6,13 +6,14 @@ import {
 } from "@mui/icons-material";
 import React from "react";
 import "./Navbar.css";
+import { Link } from "react-router-dom";
 
 function Navbar() {
   return (
     <div className="navbar_container">
-      <div className="navbar_logo_wrapper">
+      <Link to="/" className="navbar_logo_wrapper">
         <img src="./images/linkedin-alt.png" alt="linkedin_logo" />
-      </div>
+      </Link>
       <div className="navbar_link_wrapper">
         <ul className="navbar_link_container">
           <li>
@@ -33,8 +34,16 @@ function Navbar() {
           </li>
         </ul>
         <div className="navbar_auth_link_container">
-          <span>Join now</span>
-          <span>Sign in</span>
+          <span>
+            <Link to="/signup" className="navbar_link">
+              Join now
+            </Link>
+          </span>
+          <span>
+            <Link to="/signin" className="navbar_link">
+              Sign in
+            </Link>
+          </span>
         </div>
       </div>
     </div>

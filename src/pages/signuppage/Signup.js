@@ -3,6 +3,7 @@ import "./Signup.css";
 
 import SignupInput from "../../components/signupInput/SignupInput";
 import AuthFooter from "../../components/authFooter/AuthFooter";
+import { Link } from "react-router-dom";
 
 const signupFooterList = [
   "About",
@@ -21,7 +22,10 @@ function Signup() {
     <div className="signup_container">
       {/* Header */}
       <div className="signup_header">
-        <img src="./images/linkedin-alt.png" alt="linkedin-logo" />
+        <Link to="/" className="signup_header_image">
+          <img src="./images/linkedin-alt.png" alt="linkedin-logo" />
+        </Link>
+
         <span></span>
         <span></span>
       </div>
@@ -64,9 +68,9 @@ function Signup() {
             <span>Continue with Google </span>
           </div>
 
-          <div className="signup_login_route">
+          <Link to="/signin" className="signup_login_route">
             Already on LinkedIn? <span>Sign in</span>
-          </div>
+          </Link>
         </div>
         <div className="signup_foot">
           Looking to create a page for your business? <span>Get help</span>
