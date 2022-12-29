@@ -33,6 +33,7 @@
 
 .signup_input_spot:hover {
   border: 2px solid black;
+  height: 28px;
 }
 
 .signup_input_spot > span {
