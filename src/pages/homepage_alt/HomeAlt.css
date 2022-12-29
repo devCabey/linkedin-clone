@@ -17,24 +17,35 @@
   }
 
   .homealt_first_left_wrapper > p {
-    font-size: 35px;
+    font-size: 25px;
     font-weight: 300;
-    margin-bottom: 0px;
+    margin-bottom: 10px;
+    margin-top: 10px;
+    text-align: center;
   }
   .homealt_second_container {
     flex-direction: column;
   }
 
   .homealt_second_container_left {
+    justify-content: flex-end;
+    align-items: flex-start;
     width: 100%;
   }
 
   .homealt_second_container_right {
     width: 100%;
   }
+
+  .homealt_second_container_right > div {
+    width: 100%;
+    padding: 10px;
+    margin: 10px;
+  }
   .homealt_second_container_left > p {
     font-size: 2em;
     font-weight: 250;
+    width: 95%;
     /* margin-top: 30px; */
   }
 
@@ -151,16 +162,25 @@
   }
 
   .homealt_second_container_left {
-    width: 40%;
+    width: 50%;
+    justify-content: center;
+
+    /* border: 1px solid red; */
   }
 
   .homealt_second_container_right {
-    width: 60%;
+    width: 50%;
+  }
+  .homealt_second_container_right > div {
+    width: 70%;
+    padding: 10px;
+    margin: 10px;
   }
   .homealt_second_container_left > p {
-    font-size: 3rem;
+    font-size: 48px;
     font-weight: 250;
     margin-top: 30px;
+    width: 70%;
   }
   .homealt_third_container {
     flex-direction: row;
@@ -172,13 +192,13 @@
     align-items: center;
   }
   .homealt_fourth_container_left {
-    width: 40%;
+    width: 50%;
     display: flex;
-    justify-content: flex-end;
+    justify-content: center;
   }
 
   .homealt_fourth_container_right {
-    width: 60%;
+    width: 50%;
     display: flex;
     align-items: center;
   }
@@ -233,7 +253,7 @@
   }
 
   .homealt_footer {
-    height: 100px;
+    height: 150px;
   }
 }
 
@@ -361,24 +381,12 @@
 .homealt_second_container_left {
   /* border: 1px solid red; */
   display: flex;
-  justify-content: flex-end;
-  align-items: flex-start;
 }
 
 .homealt_second_container_right {
   display: flex;
   align-items: center;
   /* border: 1px solid red; */
-}
-
-.homealt_second_container_left > p {
-  width: 95%;
-}
-
-.homealt_second_container_right > div {
-  width: 100%;
-  padding: 10px;
-  margin: 10px;
 }
 
 .homealt_third_container {
@@ -390,7 +398,7 @@
 
 .homealt_fourth_container {
   width: 100%;
-  height: 200px;
+  height: 400px;
   display: flex;
   background-color: #faf1e8;
 }
@@ -418,6 +426,7 @@
 
 .homealt_final_container {
   display: flex;
+  padding-top: 20px;
   /* border: 1px solid red; */
 }
 

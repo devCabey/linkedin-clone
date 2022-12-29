@@ -14,7 +14,7 @@ function AuthFooter({ list }) {
         <p className="auth_copyright">&copy;2022</p>
       </div>
       <ul className="auth_footer_list">
-        {list && list.map((data) => <li>{data}</li>)}
+        {list && list.map((data, index) => <li key={index}>{data}</li>)}
         <li>
           Language <ExpandMore />
         </li>
