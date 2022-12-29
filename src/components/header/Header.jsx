@@ -21,12 +21,21 @@ function Header() {
         </div>
       </div>
       <div className="header_right">
-        <HeaderOption title="Home" Icon={Home} />
-        <HeaderOption title="My Network" Icon={SupervisorAccount} />
-        <HeaderOption title="Jobs" Icon={BusinessCenter} />
-        <HeaderOption title="Messaging" Icon={Chat} />
-        <HeaderOption title="Notification" Icon={Notifications} />
+        <HeaderOption title="Home" Icon={Home} to="/feed" />
         <HeaderOption
+          title="My Network"
+          Icon={SupervisorAccount}
+          to="/network"
+        />
+        <HeaderOption title="Jobs" Icon={BusinessCenter} to="/jobs" />
+        <HeaderOption title="Messaging" Icon={Chat} to="message" />
+        <HeaderOption
+          title="Notification"
+          Icon={Notifications}
+          to="/notification"
+        />
+        <HeaderOption
+          to="/profile"
           title="Me"
           avatar="https://media.istockphoto.com/id/1179588723/photo/close-up-portrait-of-his-he-nice-attractive-funny-confused-brunet-bearded-guy-wearing-pink.jpg?s=612x612&w=0&k=20&c=nhgnEZKvA1yxYhnSQ-hD4fHFQr7xGn2TwJnatCdssK4="
         />
