@@ -1,8 +1,4 @@
 @media only screen and (max-width: 360px) {
-  .home_header {
-    min-width: 560px;
-  }
-
   .home_container {
     width: 100%;
   }
@@ -27,9 +23,6 @@
     width: 90%;
   }
 
-  .home_wrapper {
-    background-color: white;
-  }
   .home_sidebar {
     flex: 0.3;
   }
@@ -45,9 +38,6 @@
 }
 
 @media only screen and (min-width: 960px) {
-  .home_wrapper {
-    background-color: whitesmoke;
-  }
   .home_container {
     width: 80%;
   }
@@ -72,16 +62,4 @@
   justify-content: space-between;
   margin-top: 20px;
   /* border: 1px solid red; */
-}
-
-.home_wrapper {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  /* background-color: black; */
-}
-
-.home_header {
-  width: 100%;
 }

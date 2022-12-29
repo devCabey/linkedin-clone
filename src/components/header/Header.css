@@ -82,7 +82,7 @@
 }
 
 .header_search:hover {
-  /* flex: 1; */
+  flex: 1;
 }
 
 .header_right {

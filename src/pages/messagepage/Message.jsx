@@ -1,7 +1,12 @@
 import React from "react";
+import HomeWrapper from "../../hoc/homeWrapper/HomeWrapper";
 
 function Message() {
-  return <div>Message</div>;
+  return (
+    <HomeWrapper>
+      <div>Message</div>
+    </HomeWrapper>
+  );
 }
 
 export default Message;

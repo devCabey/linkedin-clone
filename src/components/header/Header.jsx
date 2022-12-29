@@ -28,7 +28,7 @@ function Header() {
           to="/network"
         />
         <HeaderOption title="Jobs" Icon={BusinessCenter} to="/jobs" />
-        <HeaderOption title="Messaging" Icon={Chat} to="message" />
+        <HeaderOption title="Messaging" Icon={Chat} to="/message" />
         <HeaderOption
           title="Notification"
           Icon={Notifications}

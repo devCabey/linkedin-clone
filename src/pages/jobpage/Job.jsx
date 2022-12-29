@@ -1,7 +1,12 @@
 import React from "react";
+import HomeWrapper from "../../hoc/homeWrapper/HomeWrapper";
 
 function Job() {
-  return <div>Job</div>;
+  return (
+    <HomeWrapper>
+      <div>Job</div>
+    </HomeWrapper>
+  );
 }
 
 export default Job;

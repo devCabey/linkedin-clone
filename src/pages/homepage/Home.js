@@ -5,6 +5,7 @@ import Feed from "../../components/feed/Feed";
 import Header from "../../components/header/Header";
 import Sidebar from "../../components/sidebar/Sidebar";
 import Widget from "../../components/widget/Widget";
+import HomeWrapper from "../../hoc/homeWrapper/HomeWrapper";
 // import { useSelector } from "react-redux";
 // import { selectUser } from "../../redux/userSlice";
 // import Login from "../loginpage/Login";
@@ -13,13 +14,7 @@ import Widget from "../../components/widget/Widget";
 function Home() {
   // const user = useSelector(selectUser);
   return (
-    // <div>
-    <div className="home_wrapper">
-      <div className="home_header">
-        <Header />
-      </div>
-
-      {/* App Body */}
+    <HomeWrapper>
       <div className="home_container">
         {/* Sidebar */}
         <div className="home_sidebar">
@@ -36,8 +31,7 @@ function Home() {
           <Widget />
         </div>
       </div>
-    </div>
-    //  </div>
+    </HomeWrapper>
   );
 }
 

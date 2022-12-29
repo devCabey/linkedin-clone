@@ -34,6 +34,7 @@ function App() {
     {
       path: "feed",
       element: <Home />,
+      
     },
     {
       path: "network",
