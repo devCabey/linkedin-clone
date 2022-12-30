@@ -15,13 +15,17 @@ import React, { useState } from "react";
 import HeaderOption from "./header-option/HeaderOption";
 import "./Header.css";
 import SearchOutStretch from "../searchOutstretch/SearchOutStretch";
+import { Link } from "react-router-dom";
 
 function Header() {
   const [showSearch, setShowSearch] = useState(false);
   return (
     <div className="header_container">
       <div className="header_left">
-        <img src="./images/linkedin.png" alt="logo" />
+        <Link to="/feed" className="header_link_image">
+          <img src="./images/linkedin.png" alt="logo" />
+        </Link>
+
         <div
           className="header_search"
           onMouseDown={() => setShowSearch(!showSearch)}

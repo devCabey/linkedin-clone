@@ -11,7 +11,7 @@
     padding: 2px 10px;
   }
 
-  .header_left > img {
+  .header_link_image > img {
     height: 30px;
   }
   .header_right {
@@ -36,7 +36,7 @@
     width: 450px;
   }
 
-  .header_left > img {
+  .header_link_image> img {
     height: 40px;
   }
 }
@@ -86,8 +86,6 @@
   flex: 1;
   border: 1px solid #0a71f0;
 }
-
-
 
 .header_right {
   justify-content: space-between;
