@@ -11,20 +11,24 @@ import {
   NotificationsActive,
   House,
 } from "@mui/icons-material";
-import React from "react";
+import React, { useState } from "react";
 import HeaderOption from "./header-option/HeaderOption";
 import "./Header.css";
 import SearchOutStretch from "../searchOutstretch/SearchOutStretch";
 
 function Header() {
+  const [showSearch, setShowSearch] = useState(false);
   return (
     <div className="header_container">
       <div className="header_left">
         <img src="./images/linkedin.png" alt="logo" />
-        <div className="header_search">
+        <div
+          className="header_search"
+          onMouseDown={() => setShowSearch(!showSearch)}
+        >
           <SearchOutlined />
           <input type="text" placeholder="Search" />
-          <SearchOutStretch />
+          <SearchOutStretch show={showSearch} />
         </div>
       </div>
       <div className="header_right">

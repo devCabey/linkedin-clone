@@ -3,9 +3,11 @@ import "./SearchOutStretch.css";
 import SearchItem from "./searchRecentItem/SearchItem";
 import SearchRecentItem from "./searchRecentItem/SearchRecentItem";
 import SearchTryItem from "./searchRecentItem/SearchTryItem";
-function SearchOutStretch() {
+function SearchOutStretch({ show }) {
   return (
-    <div className="search_outstretch">
+    <div
+      className={`search_outstretch  ${show ? "search_outstretch_show" : ""}`}
+    >
       <div className="search_outstretch_wrapper">
         <div className="search_outstretch_top">
           <div className="search_outstretch_top_head">
@@ -26,7 +28,6 @@ function SearchOutStretch() {
             <SearchRecentItem title="s" />
             <SearchRecentItem title="dfasfafsdfsdf" />
             <SearchRecentItem title="full stack " />
-           
           </div>
         </div>
         <div className="search_outstretch_bottom">
