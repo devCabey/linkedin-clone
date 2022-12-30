@@ -71,7 +71,7 @@
   height: 30px;
   color: gray;
   background-color: #eef3f8;
-  transition: 0.5s linear;
+  transition: 0.2s linear;
 }
 
 .header_search > input {
@@ -79,11 +79,15 @@
   outline: none;
   border: none;
   background: none;
+  font-size: 15px;
 }
 
 .header_search:hover {
   flex: 1;
+  border: 1px solid #0a71f0;
 }
+
+
 
 .header_right {
   justify-content: space-between;

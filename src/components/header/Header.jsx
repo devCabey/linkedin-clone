@@ -14,6 +14,7 @@ import {
 import React from "react";
 import HeaderOption from "./header-option/HeaderOption";
 import "./Header.css";
+import SearchOutStretch from "../searchOutstretch/SearchOutStretch";
 
 function Header() {
   return (
@@ -22,7 +23,8 @@ function Header() {
         <img src="./images/linkedin.png" alt="logo" />
         <div className="header_search">
           <SearchOutlined />
-          <input type="text" placeholder="Search anything" />
+          <input type="text" placeholder="Search" />
+          <SearchOutStretch />
         </div>
       </div>
       <div className="header_right">
