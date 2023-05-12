@@ -1,0 +1,19 @@
+import express from 'express';
+import cors from 'cors';
+import morgan from 'morgan';
+import { connect } from './model/index.js';
+
+const app = express();
+
+app.use(cors());
+app.use(morgan('tiny'));
+
+connect()
+	.then(() => {
+		app.listen(8080, () => {
+			console.log('Server is running on 8080');
+		});
+	})
+	.catch((err) => {
+		console.log(`Server not running due to ${err}`);
+	});
