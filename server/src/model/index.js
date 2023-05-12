@@ -1,6 +1,10 @@
 import mongoose from 'mongoose';
 import dotenv from 'dotenv';
 dotenv.config();
+
+export * from './User.js';
+export * from './Post.js';
+
 export const connect = async () => {
 	try {
 		mongoose.set({ strictQuery: true });
