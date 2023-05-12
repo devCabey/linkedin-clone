@@ -10,7 +10,7 @@ export const UserSchema = new Schema({
 	firstName: {
 		type: SchemaTypes.String,
 	},
-	bio: {
+	about: {
 		type: SchemaTypes.String,
 	},
 	profile: {
@@ -18,6 +18,8 @@ export const UserSchema = new Schema({
 	},
 	email: {
 		type: SchemaTypes.String,
+		required: true,
+		unique: true,
 	},
 	phone: {
 		type: SchemaTypes.String,
