@@ -10,8 +10,8 @@ app.use(morgan('tiny'));
 
 connect()
 	.then(() => {
-		app.listen(8080, () => {
-			console.log('Server is running on 8080');
+		app.listen(process.env.PORT, () => {
+			console.log(`Server is running on http://localhost:${process.env.PORT} `);
 		});
 	})
 	.catch((err) => {
