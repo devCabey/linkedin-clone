@@ -53,18 +53,20 @@ UserSchema.pre('save', async function (next) {
 	}
 });
 
-UserSchema.methods.comparePassword = async function (password) {
-	return await bcrypt.compare(password, this.password);
+UserSchema.methods.comparePasswords = async function (password) {
+	const valid = await bcrypt.compare(password, this.password);
+	return valid;
 };
 
 UserSchema.methods.generateToken = async function () {
-	token = jwt.sign(
+	const token = jwt.sign(
 		{
 			id: this._id,
 		},
 		process.env.JWT_SECRET,
 		{ expiresIn: '1h' }
 	);
+	return token;
 };
 
 export const UserModel = model('User', UserSchema);
