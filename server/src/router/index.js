@@ -1,5 +1,10 @@
 import { Router } from 'express';
-import { loginUser, registerUser } from '../controller/index.js';
+import {
+	getUser,
+	getUsers,
+	loginUser,
+	registerUser,
+} from '../controller/index.js';
 
 const router = Router();
 
@@ -12,6 +17,10 @@ router.route('/register').post(registerUser);
 router.route('/login').post(loginUser);
 
 /** ALL GET REQUEST */
+
+/** route for getting user based of id */
+router.route('/users/:id').get(getUser);
+router.route('/users').get(getUsers);
 
 /** ALL POST REQUEST */
 
