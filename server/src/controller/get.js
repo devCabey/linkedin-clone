@@ -5,7 +5,7 @@ import { UserModel } from '../model/index.js';
 /** GET: http://localhost:8080/api/users
  * @param {
  * username:string
- * } req.params
+ * } req.query
  */
 
 export const getUsers = async (req, res) => {
@@ -16,6 +16,7 @@ export const getUsers = async (req, res) => {
 					$or: [
 						{ firstName: { $regex: username, $options: 'i' } },
 						{ lastName: { $regex: username, $options: 'i' } },
+						{ email: { $regex: username, $options: 'i' } },
 					],
 			  })
 			: await UserModel.find();
