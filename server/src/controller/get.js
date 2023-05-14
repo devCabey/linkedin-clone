@@ -31,13 +31,13 @@ export const getUserByUsername = async (req, res) => {
 	}
 };
 
-/** GET: http://localhost:8080/api/users/id
+/** GET: http://localhost:8080/api/users/:id
  * @param {
  * username:string
  * } req.params
  */
 export const getUserById = async (req, res) => {
-	const { id } = req.query;
+	const { id } = req.params;
 	try {
 		if (!id) throw new Error('User ID not provided');
 		const _user = await UserModel.findById(id);
