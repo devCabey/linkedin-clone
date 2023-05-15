@@ -90,8 +90,9 @@ export const getPost = async (req, res) => {
 	// getting product id from params
 	const { id } = req.params;
 	try {
-		// verifying whether the post id was provided
+		/** verifying whether the post id was provided  */
 		if (!id) throw new Error('Product ID not provided');
+		/**Fetching post based on the id */
 		const _post = await PostModel.findById(id);
 		if (!_post) throw new Error('Post not found');
 		return res.status(201).send({
