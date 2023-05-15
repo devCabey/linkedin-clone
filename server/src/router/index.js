@@ -1,5 +1,6 @@
 import { Router } from 'express';
 import {
+	createPost,
 	getUser,
 	getUsers,
 	loginUser,
@@ -23,6 +24,7 @@ router.route('/users/:id').get(getUser);
 router.route('/users').get(getUsers);
 
 /** ALL POST REQUEST */
+router.route('/post').post(createPost);
 
 /** ALL PATCH REQUEST */
 
