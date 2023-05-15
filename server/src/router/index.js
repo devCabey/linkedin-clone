@@ -21,9 +21,11 @@ router.route('/login').post(loginUser);
 
 /** route for getting user based of id */
 router.route('/users/:id').get(getUser);
+/** route for getting all users base on username or nothing */
 router.route('/users').get(getUsers);
 
 /** ALL POST REQUEST */
+/**route for creating a new post */
 router.route('/post').post(createPost);
 
 /** ALL PATCH REQUEST */
