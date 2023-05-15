@@ -1,6 +1,6 @@
 /** ALL GET REQUEST */
 
-import { UserModel } from '../model/index.js';
+import { PostModel, UserModel } from '../model/index.js';
 
 /** GET: http://localhost:8080/api/users
  * @param {
@@ -9,8 +9,10 @@ import { UserModel } from '../model/index.js';
  */
 
 export const getUsers = async (req, res) => {
+	/** Getting username from request query if provided */
 	const { username } = req.query;
 	try {
+		/** Fetching user based of query parameter or fetching all users */
 		const _users = username
 			? await UserModel.find({
 					$or: [
@@ -20,17 +22,15 @@ export const getUsers = async (req, res) => {
 					],
 			  })
 			: await UserModel.find();
-
-		if (!_users) throw new Error('User not found');
 		// work on backend pagination
 		return res.status(201).send({
-			user: _users,
+			users: _users,
 			message: 'Users fetched successfully',
 		});
 	} catch (err) {
 		return res.status(401).send({
-			user: {},
-			message: err.message,
+			users: [],
+			message: 'Unable to fetch users',
 		});
 	}
 };
@@ -41,12 +41,14 @@ export const getUsers = async (req, res) => {
  * } req.params
  */
 export const getUser = async (req, res) => {
+	/** Getting user id from the request */
 	const { id } = req.params;
 	try {
+		/** Making sure user id is provided */
 		if (!id) throw new Error('User ID not provided');
+		/** Fetching user */
 		const _user = await UserModel.findById(id);
 		if (!_user) throw new Error('User not found');
-		// work on backend pagination
 		res.status(201).send({
 			user: _user,
 			message: 'User fetched sucessfully',
@@ -54,6 +56,51 @@ export const getUser = async (req, res) => {
 	} catch (err) {
 		res.status(401).send({
 			user: {},
+			message: err.message,
+		});
+	}
+};
+
+/**
+ *
+ * @param {} req
+ * @param {
+ * posts: Array,
+ * message: string
+ * } res
+ */
+
+export const getPosts = async (req, res) => {
+	try {
+		/**fetching posts */
+		const _posts = await PostModel.find();
+		res.status(201).send({
+			posts: _posts,
+			message: 'Post fetched successfully',
+		});
+	} catch (err) {
+		return res.status(401).send({
+			posts: [],
+			message: 'Unable to fetch posts',
+		});
+	}
+};
+
+export const getPost = async (req, res) => {
+	// getting product id from params
+	const { id } = req.params;
+	try {
+		// verifying whether the post id was provided
+		if (!id) throw new Error('Product ID not provided');
+		const _post = await PostModel.findById(id);
+		if (!_post) throw new Error('Post not found');
+		return res.status(201).send({
+			post: _post,
+			message: 'Post fetched succesfully',
+		});
+	} catch (err) {
+		return res.status(201).send({
+			post: {},
 			message: err.message,
 		});
 	}
