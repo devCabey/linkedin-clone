@@ -45,7 +45,7 @@ export const getUser = async (req, res) => {
 	const { id } = req.params;
 	try {
 		/** Making sure user id is provided */
-		if (!id) throw new Error('User ID not provided');
+		if (!id) throw new Error('User details not provided');
 		/** Fetching user */
 		const _user = await UserModel.findById(id);
 		if (!_user) throw new Error('User not found');

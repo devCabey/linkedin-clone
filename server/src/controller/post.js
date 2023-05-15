@@ -17,15 +17,17 @@ import { PostModel, UserModel } from '../model/index.js';
 export const createPost = async (req, res) => {
 	try {
 		/**Get Authorization header */
-		const token = req.headers.Authorization;
-		if (!token) throw new Error('Token not provided');
-		const user = await verifyUser(token);
-		if (!user) throw new Error('Invalid token');
+		const _token = req.headers.authorization;
+		if (!_token) throw new Error('Token not provided');
+		const token = _token.split(' ')[1];
+
+		const payload = await verifyUser(token);
+		if (!payload) throw new Error('Invalid token');
 		/** verify that user exist in the database */
-		const _user = await UserModel.findById(user.id);
+		const _user = await UserModel.findById(payload.id);
 		if (!_user) throw new Error('User not found');
 		/** Create post */
-		const post = new PostModel({ ...req.body, user: _user });
+		const post = new PostModel({ ...req.body, owner: _user });
 		await post.save();
 		return res.status(201).send({
 			post,
