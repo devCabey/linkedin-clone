@@ -62,7 +62,7 @@ export const getUser = async (req, res) => {
 };
 
 /**
- *
+ * GET:http://localhost:8080/api/posts
  * @param {} req
  * @param {
  * posts: Array,
@@ -86,6 +86,16 @@ export const getPosts = async (req, res) => {
 	}
 };
 
+/**
+ * GET:http://localhost:8080/api/posts/:id
+ * @param {
+ * id:ObjectId
+ * } req.params
+ * @param {
+ * posts: Object,
+ * message: string
+ * } res
+ */
 export const getPost = async (req, res) => {
 	// getting product id from params
 	const { id } = req.params;

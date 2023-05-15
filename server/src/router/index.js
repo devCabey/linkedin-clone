@@ -1,6 +1,8 @@
 import { Router } from 'express';
 import {
 	createPost,
+	getPost,
+	getPosts,
 	getUser,
 	getUsers,
 	loginUser,
@@ -23,6 +25,10 @@ router.route('/login').post(loginUser);
 router.route('/users/:id').get(getUser);
 /** route for getting all users base on username or nothing */
 router.route('/users').get(getUsers);
+/** route for getting all posts */
+router.route('/posts').get(getPosts);
+/** route for getting a post based on id*/
+router.route('/posts/:id').get(getPost);
 
 /** ALL POST REQUEST */
 /**route for creating a new post */
