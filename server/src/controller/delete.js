@@ -1,5 +1,12 @@
 import { PostModel } from '../model/index.js';
 
+/**
+ * DELETE: http://localhost:8080/api/posts/:id
+ * @param {
+ * id:ObjectId
+ * } req.params
+ * @param {*} res
+ */
 export const deletePost = async (req, res) => {
 	const { id } = req.params;
 	try {
