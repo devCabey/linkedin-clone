@@ -9,8 +9,10 @@ import { PostModel } from '../model/index.js';
  */
 export const deletePost = async (req, res) => {
 	const { id } = req.params;
+	const token = req.headers.authorization;
 	try {
 		if (!id) throw new Error('Post ID not provided');
+		if (!token) throw new Error('Authorization token not provided');
 		const _post = await PostModel.findById(id);
 		if (!_post) throw new Error('Post not found');
 		await _post.deleteOne();
