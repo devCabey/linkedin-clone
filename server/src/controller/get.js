@@ -1,5 +1,5 @@
 /** ALL GET REQUEST */
-
+import { authorize } from '../helper/index.js';
 import { PostModel, UserModel } from '../model/index.js';
 
 /** GET: http://localhost:8080/api/users
@@ -135,6 +135,45 @@ export const followUser = async (req, res) => {
 				return res.status(200).send({
 					user: rest,
 					message: 'Following successful',
+				});
+			})
+			.catch((e) => {
+				return res.status(400).send({
+					user: null,
+					message: e,
+				});
+			});
+	} catch (err) {
+		return res.status(400).send({
+			user: null,
+			message: err.message,
+		});
+	}
+};
+
+export const unfollowUser = async (req, res) => {
+	const { id } = req.params;
+	try {
+		authorize(req)
+			.then(async (payload) => {
+				const follower = await UserModel.findById(payload?.id);
+				if (!follower) throw new Error('User not found');
+				const following = await UserModel.findById(id);
+				if (!following) throw new Error("User doesn't exist");
+				/** removing user from following */
+				const followerFollows = follower.following.filter((_id) => {
+					return _id !== id;
+				});
+				await follower.updateOne({ $set: { following: followerFollows } });
+				/** removing user form followers */
+				const followingFollower = following.followers.filter((_id) => {
+					return _id !== follower._id;
+				});
+				await following.updateOne({ $set: { followers: followingFollower } });
+				const { password, ...rest } = Object.assign({}, follower.toJSON());
+				return res.status(200).send({
+					user: rest,
+					message: 'Unfollowing successful',
 				});
 			})
 			.catch((e) => {
