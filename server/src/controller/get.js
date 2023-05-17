@@ -120,72 +120,62 @@ export const getPost = async (req, res) => {
 
 export const followUser = async (req, res) => {
 	const { id } = req.params;
-	try {
-		authorize(req)
-			.then(async (payload) => {
-				const follower = await UserModel.findById(payload?.id);
-				if (!follower) throw new Error('User not found');
-				const following = await UserModel.findById(id);
-				if (!following) throw new Error("User doesn't exist");
-				const followerFollows = [...follower.following, id];
-				await follower.updateOne({ $set: { following: followerFollows } });
-				const followingFollower = [...following.followers, follower._id];
-				await following.updateOne({ $set: { followers: followingFollower } });
-				const { password, ...rest } = Object.assign({}, follower.toJSON());
-				return res.status(200).send({
-					user: rest,
-					message: 'Following successful',
-				});
-			})
-			.catch((e) => {
-				return res.status(400).send({
-					user: null,
-					message: e,
-				});
+
+	authorize(req)
+		.then(async (payload) => {
+			const follower = await UserModel.findById(payload?.id);
+			if (!follower) throw new Error('User not found');
+			const following = await UserModel.findById(id);
+			if (!following) throw new Error("User doesn't exist");
+			const exist = await follower.following.includes(id);
+			if (exist) throw new Error('Following user already');
+			const followerFollows = [...follower.following, id];
+			await follower.updateOne({ $set: { following: followerFollows } });
+			const followingFollower = [...following.followers, follower._id];
+			await following.updateOne({ $set: { followers: followingFollower } });
+			const { password, ...rest } = Object.assign({}, follower.toJSON());
+			return res.status(200).send({
+				user: rest,
+				message: 'Following successful',
 			});
-	} catch (err) {
-		return res.status(400).send({
-			user: null,
-			message: err.message,
+		})
+		.catch((e) => {
+			return res.status(400).send({
+				user: null,
+				message: e?.message || e,
+			});
 		});
-	}
 };
 
 export const unfollowUser = async (req, res) => {
 	const { id } = req.params;
-	try {
-		authorize(req)
-			.then(async (payload) => {
-				const follower = await UserModel.findById(payload?.id);
-				if (!follower) throw new Error('User not found');
-				const following = await UserModel.findById(id);
-				if (!following) throw new Error("User doesn't exist");
-				/** removing user from following */
-				const followerFollows = follower.following.filter((_id) => {
-					return !_id.equals(id);
-				});
-				await follower.updateOne({ $set: { following: followerFollows } });
-				/** removing user form followers */
-				const followingFollower = following.followers.filter((_id) => {
-					return !_id.equals(follower._id);
-				});
-				await following.updateOne({ $set: { followers: followingFollower } });
-				const { password, ...rest } = Object.assign({}, follower.toJSON());
-				return res.status(200).send({
-					user: rest,
-					message: 'Unfollowing successful',
-				});
-			})
-			.catch((e) => {
-				return res.status(400).send({
-					user: null,
-					message: e,
-				});
+
+	authorize(req)
+		.then(async (payload) => {
+			const follower = await UserModel.findById(payload?.id);
+			if (!follower) throw new Error('User not found');
+			const following = await UserModel.findById(id);
+			if (!following) throw new Error("User doesn't exist");
+			/** removing user from following */
+			const followerFollows = follower.following.filter((_id) => {
+				return !_id.equals(id);
 			});
-	} catch (err) {
-		return res.status(400).send({
-			user: null,
-			message: err.message,
+			await follower.updateOne({ $set: { following: followerFollows } });
+			/** removing user form followers */
+			const followingFollower = following.followers.filter((_id) => {
+				return !_id.equals(follower._id);
+			});
+			await following.updateOne({ $set: { followers: followingFollower } });
+			const { password, ...rest } = Object.assign({}, follower.toJSON());
+			return res.status(200).send({
+				user: rest,
+				message: 'Unfollowing successful',
+			});
+		})
+		.catch((e) => {
+			return res.status(400).send({
+				user: null,
+				message: e?.message || e,
+			});
 		});
-	}
 };
