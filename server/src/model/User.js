@@ -1,7 +1,6 @@
 import { Schema, SchemaTypes, model } from 'mongoose';
 import bcrypt from 'bcryptjs';
 import jwt from 'jsonwebtoken';
-import { token } from 'morgan';
 
 export const UserSchema = new Schema({
 	lastName: {
@@ -27,18 +26,25 @@ export const UserSchema = new Schema({
 	password: {
 		type: SchemaTypes.String,
 	},
+
 	following: [
 		{
 			type: SchemaTypes.ObjectId,
 			ref: 'User',
 		},
 	],
+	followerNum: {
+		type: SchemaTypes.Number,
+	},
 	followers: [
 		{
 			type: SchemaTypes.ObjectId,
 			ref: 'User',
 		},
 	],
+	followingNum: {
+		type: SchemaTypes.Number,
+	},
 });
 
 UserSchema.pre('save', async function (next) {
@@ -47,6 +53,8 @@ UserSchema.pre('save', async function (next) {
 		let salt = await bcrypt.genSalt(10);
 		let hash = await bcrypt.hash(this.password, salt);
 		this.password = hash;
+		this.followerNum = this.followers.length;
+		this.followingNum = this.following.length;
 		next();
 	} catch (err) {
 		next(err);

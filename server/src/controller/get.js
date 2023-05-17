@@ -49,8 +49,9 @@ export const getUser = async (req, res) => {
 		/** Fetching user */
 		const _user = await UserModel.findById(id);
 		if (!_user) throw new Error('User not found');
+		const { password, ...rest } = Object.assign({}, _user.toJSON());
 		res.status(201).send({
-			user: _user,
+			user: rest,
 			message: 'User fetched sucessfully',
 		});
 	} catch (err) {
@@ -112,6 +113,39 @@ export const getPost = async (req, res) => {
 	} catch (err) {
 		return res.status(201).send({
 			post: {},
+			message: err.message,
+		});
+	}
+};
+
+export const followUser = async (req, res) => {
+	const { id } = req.params;
+	try {
+		authorize(req)
+			.then(async (payload) => {
+				const follower = await UserModel.findById(payload?.id);
+				if (!follower) throw new Error('User not found');
+				const following = await UserModel.findById(id);
+				if (!following) throw new Error("User doesn't exist");
+				const followerFollows = [...follower.following, id];
+				await follower.updateOne({ $set: { following: followerFollows } });
+				const followingFollower = [...following.followers, follower._id];
+				await following.updateOne({ $set: { followers: followingFollower } });
+				const { password, ...rest } = Object.assign({}, follower.toJSON());
+				return res.status(200).send({
+					user: rest,
+					message: 'Following successful',
+				});
+			})
+			.catch((e) => {
+				return res.status(400).send({
+					user: null,
+					message: e,
+				});
+			});
+	} catch (err) {
+		return res.status(400).send({
+			user: null,
 			message: err.message,
 		});
 	}
