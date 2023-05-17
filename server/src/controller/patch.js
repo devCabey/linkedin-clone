@@ -1,5 +1,5 @@
 import { authorize } from '../helper/index.js';
-import { UserModel } from '../model/index.js';
+import { PostModel, UserModel } from '../model/index.js';
 
 export const updateUser = async (req, res) => {
 	const { lastName, firstName, about, profile } = req.body;
@@ -24,6 +24,36 @@ export const updateUser = async (req, res) => {
 		.catch((e) => {
 			return res.status(400).send({
 				user: null,
+				message: e?.message || e,
+			});
+		});
+};
+
+export const commentPost = async (req, res) => {
+	const { description } = req.body;
+	const { id } = req.params;
+	authorize(req)
+		.then(async (payload) => {
+			const _post = await PostModel.findById(id);
+			if (!_post) throw new Error('Post not found');
+			const _user = await UserModel.findById(payload.id);
+			if (!_user) throw new Error('User not found');
+			const comments = [
+				..._post.comments,
+				{
+					description,
+					user: payload.id,
+				},
+			];
+			await _post.updateOne({ $set: { comments } });
+			return res.status(200).send({
+				post: _post,
+				message: 'Comment saved successfully',
+			});
+		})
+		.catch((e) => {
+			return res.status(400).send({
+				post: null,
 				message: e?.message || e,
 			});
 		});

@@ -1,5 +1,6 @@
 import { Router } from 'express';
 import {
+	commentPost,
 	createPost,
 	deletePost,
 	dislikePost,
@@ -50,6 +51,7 @@ router.route('/post').post(createPost);
 
 /** ALL PATCH REQUEST */
 router.route('/post').patch(updateUser);
+router.route('/posts/:id/comment').patch(commentPost);
 
 /** ALL PUT REQUEST */
 

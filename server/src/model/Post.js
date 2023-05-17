@@ -1,7 +1,7 @@
 import { Schema, SchemaTypes, model } from 'mongoose';
 
 export const CommentSchema = new Schema({
-	text: {
+	description: {
 		type: SchemaTypes.String,
 	},
 	user: {
