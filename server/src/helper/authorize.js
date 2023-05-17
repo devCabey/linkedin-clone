@@ -1,6 +1,6 @@
 import { verifyUser } from './index.js';
 
-export const getUserInfo = async (req) => {
+export const authorize = async (req) => {
 	return new Promise(async (resolve, reject) => {
 		try {
 			/**Get Authorization header */
