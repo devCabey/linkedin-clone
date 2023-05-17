@@ -22,7 +22,7 @@ export const getUsers = async (req, res) => {
 					],
 			  })
 			: await UserModel.find();
-		// work on backend pagination
+		/** work on backend pagination */
 		return res.status(200).send({
 			users: _users,
 			message: 'Users fetched successfully',
@@ -46,9 +46,11 @@ export const getUser = async (req, res) => {
 	try {
 		/** Making sure user id is provided */
 		if (!id) throw new Error('User details not provided');
+
 		/** Fetching user */
 		const _user = await UserModel.findById(id);
 		if (!_user) throw new Error('User not found');
+
 		const { password, ...rest } = Object.assign({}, _user.toJSON());
 		res.status(200).send({
 			user: rest,
@@ -103,9 +105,11 @@ export const getPost = async (req, res) => {
 	try {
 		/** verifying whether the post id was provided  */
 		if (!id) throw new Error('Product ID not provided');
+
 		/**Fetching post based on the id */
 		const _post = await PostModel.findById(id);
 		if (!_post) throw new Error('Post not found');
+
 		return res.status(201).send({
 			post: _post,
 			message: 'Post fetched succesfully',
@@ -118,21 +122,42 @@ export const getPost = async (req, res) => {
 	}
 };
 
+/**
+ * GET:http://localhost:8080/api/users/:id/follow
+ * @param {
+ * 	id:ObjectId
+ * } req.params
+ * @param {
+ * user: Object,
+ * message: string
+ * } res
+ */
 export const followUser = async (req, res) => {
 	const { id } = req.params;
 
 	authorize(req)
 		.then(async (payload) => {
+			/** checking whether id is your own id */
+			if (payload.id.equals(id)) throw new Error('Cant follow self');
+
 			const follower = await UserModel.findById(payload?.id);
 			if (!follower) throw new Error('User not found');
 			const following = await UserModel.findById(id);
 			if (!following) throw new Error("User doesn't exist");
+
+			/** checking if user follows user or not */
 			const exist = await follower.following.includes(id);
 			if (exist) throw new Error('Following user already');
+
+			/** updating user following data */
 			const followerFollows = [...follower.following, id];
 			await follower.updateOne({ $set: { following: followerFollows } });
+
+			/** updating other user follower data */
 			const followingFollower = [...following.followers, follower._id];
 			await following.updateOne({ $set: { followers: followingFollower } });
+
+			/** removing password from data being sent as response */
 			const { password, ...rest } = Object.assign({}, follower.toJSON());
 			return res.status(200).send({
 				user: rest,
@@ -147,25 +172,46 @@ export const followUser = async (req, res) => {
 		});
 };
 
+/**
+ * GET:http://localhost:8080/api/users/:id/unfollow
+ * @param {
+ * 	id:ObjectId
+ * } req.params
+ * @param {
+ * user: Object,
+ * message: string
+ * } res
+ */
 export const unfollowUser = async (req, res) => {
 	const { id } = req.params;
 
 	authorize(req)
 		.then(async (payload) => {
+			/** checking whether id is your own id */
+			if (payload.id.equals(id)) throw new Error('Cant unfollow self');
+
 			const follower = await UserModel.findById(payload?.id);
 			if (!follower) throw new Error('User not found');
 			const following = await UserModel.findById(id);
 			if (!following) throw new Error("User doesn't exist");
-			/** removing user from following */
+
+			/** checking if user follows user or not */
+			const exist = await follower.following.includes(id);
+			if (!exist) throw new Error('Not following user');
+
+			/** removing from user following */
 			const followerFollows = follower.following.filter((_id) => {
 				return !_id.equals(id);
 			});
 			await follower.updateOne({ $set: { following: followerFollows } });
-			/** removing user form followers */
+
+			/** removing from other user followers */
 			const followingFollower = following.followers.filter((_id) => {
 				return !_id.equals(follower._id);
 			});
 			await following.updateOne({ $set: { followers: followingFollower } });
+
+			/** removing password from data being sent as response */
 			const { password, ...rest } = Object.assign({}, follower.toJSON());
 			return res.status(200).send({
 				user: rest,
