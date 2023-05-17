@@ -2,12 +2,14 @@ import { Router } from 'express';
 import {
 	createPost,
 	deletePost,
+	followUser,
 	getPost,
 	getPosts,
 	getUser,
 	getUsers,
 	loginUser,
 	registerUser,
+	unfollowUser,
 } from '../controller/index.js';
 
 const router = Router();
@@ -26,10 +28,15 @@ router.route('/login').post(loginUser);
 router.route('/users/:id').get(getUser);
 /** route for getting all users base on username or nothing */
 router.route('/users').get(getUsers);
+/**route for following a user */
+router.route('/users/:id/follow').get(followUser);
+/**route for unfollowing a user */
+router.route('/users/:id/unfollow').get(unfollowUser);
 /** route for getting all posts */
 router.route('/posts').get(getPosts);
 /** route for getting a post based on id*/
 router.route('/posts/:id').get(getPost);
+
 
 /** ALL POST REQUEST */
 /**route for creating a new post */
