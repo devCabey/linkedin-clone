@@ -137,13 +137,14 @@ export const followUser = async (req, res) => {
 
 	authorize(req)
 		.then(async (payload) => {
-			/** checking whether id is your own id */
-			if (payload.id.equals(id)) throw new Error('Cant follow self');
-
 			const follower = await UserModel.findById(payload?.id);
 			if (!follower) throw new Error('User not found');
 			const following = await UserModel.findById(id);
 			if (!following) throw new Error("User doesn't exist");
+
+			/** checking whether id is your own id */
+			if (follower._id.equals(following._id))
+				throw new Error('Cant follow self');
 
 			/** checking if user follows user or not */
 			const exist = await follower.following.includes(id);
@@ -187,13 +188,14 @@ export const unfollowUser = async (req, res) => {
 
 	authorize(req)
 		.then(async (payload) => {
-			/** checking whether id is your own id */
-			if (payload.id.equals(id)) throw new Error('Cant unfollow self');
-
 			const follower = await UserModel.findById(payload?.id);
 			if (!follower) throw new Error('User not found');
 			const following = await UserModel.findById(id);
 			if (!following) throw new Error("User doesn't exist");
+
+			/** checking whether id is your own id */
+			if (follower._id.equals(following._id))
+				throw new Error('Cant unfollow self');
 
 			/** checking if user follows user or not */
 			const exist = await follower.following.includes(id);
