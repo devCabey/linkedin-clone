@@ -29,6 +29,31 @@ export const updateUser = async (req, res) => {
 		});
 };
 
+export const updatePost = async (req, res) => {
+	const { id } = req.params;
+	authorize(req)
+		.then(async (payload) => {
+			const _post = await PostModel.findById(id);
+			if (!_post) throw new Error('Post not found');
+			const _user = await UserModel.findById(payload.id);
+			if (!_user) throw new Error('User not found');
+			if (!_user._id.equals(_post.owner))
+				throw new Error('User is not authorized to update post');
+
+			await _post.updateOne({ $set: { ...req.body } });
+			return res.status(200).send({
+				post: _post,
+				message: 'Post updated successfully',
+			});
+		})
+		.catch((e) => {
+			return res.status(400).send({
+				post: null,
+				message: e?.message || e,
+			});
+		});
+};
+
 export const commentPost = async (req, res) => {
 	const { description } = req.body;
 	const { id } = req.params;

@@ -13,6 +13,7 @@ import {
 	loginUser,
 	registerUser,
 	unfollowUser,
+	updatePost,
 	updateUser,
 } from '../controller/index.js';
 
@@ -50,8 +51,9 @@ router.route('/posts/:id/dislike').get(dislikePost);
 router.route('/post').post(createPost);
 
 /** ALL PATCH REQUEST */
-router.route('/post').patch(updateUser);
+router.route('/user').patch(updateUser);
 router.route('/posts/:id/comment').patch(commentPost);
+router.route('/post/:id').patch(updatePost);
 
 /** ALL PUT REQUEST */
 
