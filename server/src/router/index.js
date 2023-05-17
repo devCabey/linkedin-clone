@@ -2,6 +2,7 @@ import { Router } from 'express';
 import {
 	commentPost,
 	createPost,
+	deleteComment,
 	deletePost,
 	dislikePost,
 	followUser,
@@ -59,5 +60,5 @@ router.route('/post/:id').patch(updatePost);
 
 /** ALL DELETE REQUEST */
 router.route('/posts/:id').delete(deletePost);
-
+router.route('/posts/:id/comment/:commentId').delete(deleteComment);
 export default router;
