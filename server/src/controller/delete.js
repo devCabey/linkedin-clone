@@ -1,4 +1,4 @@
-import { getUserInfo } from '../helper/index.js';
+import { authorize } from '../helper/index.js';
 import { PostModel, UserModel } from '../model/index.js';
 
 /**
@@ -12,9 +12,9 @@ export const deletePost = async (req, res) => {
 	const { id } = req.params;
 	try {
 		if (!id) throw new Error('Post ID not provided');
-		getUserInfo(req)
+		authorize(req)
 			.then(async (payload) => {
-				const _user = await UserModel.findById(payload.id);
+				const _user = await UserModel.findById(payload?.id);
 				if (!_user) throw new Error('User not found');
 				const _post = await PostModel.findById(id);
 				if (!_post) throw new Error('Post not found');
