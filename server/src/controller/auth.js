@@ -16,9 +16,10 @@ export const registerUser = async (req, res) => {
 			password,
 		});
 		await newUser.save();
+
 		return res
 			.status(200)
-			.send({ message: 'User Created Successfully', user: {} });
+			.send({ message: 'User Created Successfully', user: null });
 	} catch (err) {
 		return res.status(401).send({
 			message: err.message,

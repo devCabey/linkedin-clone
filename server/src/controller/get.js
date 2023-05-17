@@ -23,12 +23,12 @@ export const getUsers = async (req, res) => {
 			  })
 			: await UserModel.find();
 		// work on backend pagination
-		return res.status(201).send({
+		return res.status(200).send({
 			users: _users,
 			message: 'Users fetched successfully',
 		});
 	} catch (err) {
-		return res.status(401).send({
+		return res.status(400).send({
 			users: [],
 			message: 'Unable to fetch users',
 		});
@@ -50,12 +50,12 @@ export const getUser = async (req, res) => {
 		const _user = await UserModel.findById(id);
 		if (!_user) throw new Error('User not found');
 		const { password, ...rest } = Object.assign({}, _user.toJSON());
-		res.status(201).send({
+		res.status(200).send({
 			user: rest,
 			message: 'User fetched sucessfully',
 		});
 	} catch (err) {
-		res.status(401).send({
+		res.status(400).send({
 			user: {},
 			message: err.message,
 		});
@@ -162,12 +162,12 @@ export const unfollowUser = async (req, res) => {
 				if (!following) throw new Error("User doesn't exist");
 				/** removing user from following */
 				const followerFollows = follower.following.filter((_id) => {
-					return _id !== id;
+					return !_id.equals(id);
 				});
 				await follower.updateOne({ $set: { following: followerFollows } });
 				/** removing user form followers */
 				const followingFollower = following.followers.filter((_id) => {
-					return _id !== follower._id;
+					return !_id.equals(follower._id);
 				});
 				await following.updateOne({ $set: { followers: followingFollower } });
 				const { password, ...rest } = Object.assign({}, follower.toJSON());
