@@ -1,4 +1,4 @@
-import { getUserInfo, verifyUser } from '../helper/index.js';
+import { authorize } from '../helper/index.js';
 import { PostModel, UserModel } from '../model/index.js';
 
 /**
@@ -16,10 +16,10 @@ import { PostModel, UserModel } from '../model/index.js';
 
 export const createPost = async (req, res) => {
 	try {
-		getUserInfo(req)
+		authorize(req)
 			.then(async (payload) => {
 				/** verify that user exist in the database */
-				const _user = await UserModel.findById(payload.id);
+				const _user = await UserModel.findById(payload?.id);
 				if (!_user) throw new Error('User not found');
 				/** Create post */
 				const post = new PostModel({ ...req.body, owner: _user });
