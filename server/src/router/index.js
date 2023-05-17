@@ -2,14 +2,17 @@ import { Router } from 'express';
 import {
 	createPost,
 	deletePost,
+	dislikePost,
 	followUser,
 	getPost,
 	getPosts,
 	getUser,
 	getUsers,
+	likePost,
 	loginUser,
 	registerUser,
 	unfollowUser,
+	updateUser,
 } from '../controller/index.js';
 
 const router = Router();
@@ -36,13 +39,17 @@ router.route('/users/:id/unfollow').get(unfollowUser);
 router.route('/posts').get(getPosts);
 /** route for getting a post based on id*/
 router.route('/posts/:id').get(getPost);
-
+/** route for liking post*/
+router.route('/posts/:id/like').get(likePost);
+/** route for disliking post*/
+router.route('/posts/:id/dislike').get(dislikePost);
 
 /** ALL POST REQUEST */
 /**route for creating a new post */
 router.route('/post').post(createPost);
 
 /** ALL PATCH REQUEST */
+router.route('/post').patch(updateUser);
 
 /** ALL PUT REQUEST */
 

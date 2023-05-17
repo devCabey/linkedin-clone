@@ -227,3 +227,64 @@ export const unfollowUser = async (req, res) => {
 			});
 		});
 };
+
+export const likePost = async (req, res) => {
+	const { id } = req.params;
+	authorize(req)
+		.then(async (payload) => {
+			/** fetching post and user and making user they're in the database */
+			const _post = await PostModel.findById(id);
+			if (!_post) throw new Error('Post not found');
+			const _user = await UserModel.findById(payload?.id);
+			if (!_user) throw new Error('User not found');
+
+			/** getting post likes after checking whether already liked */
+			const exist = _post?.likes.includes(_user._id);
+			if (exist) throw new Error('User already liked post');
+			const likes = [..._post.likes];
+
+			/**adding new user to likes and updating */
+			await likes.push(_user._id);
+			await _post.updateOne({ $set: { likes } });
+			return res.status(200).send({
+				post: _post,
+				message: 'Post liked successfully',
+			});
+		})
+		.catch((e) => {
+			return res.status(400).send({
+				user: null,
+				message: e?.message || e,
+			});
+		});
+};
+
+export const dislikePost = async (req, res) => {
+	const { id } = req.params;
+	authorize(req)
+		.then(async (payload) => {
+			/** fetching post and user and making user they're in the database */
+			const _post = await PostModel.findById(id);
+			if (!_post) throw new Error('Post not found');
+			const _user = await UserModel.findById(payload?.id);
+			if (!_user) throw new Error('User not found');
+
+			/** filter post likes after checking whether already liked */
+			const exist = await _post.likes.includes(payload.id);
+			if (!exist) throw new Error('User has not liked this post');
+			const likes = await _post.likes.filter((_id) => {
+				return !_id.equals(_user._id);
+			});
+			await _post.updateOne({ $set: { likes } });
+			return res.status(200).send({
+				post: _post,
+				message: 'Post disliked successfully',
+			});
+		})
+		.catch((e) => {
+			return res.status(400).send({
+				user: null,
+				message: e?.message || e,
+			});
+		});
+};
