@@ -28,8 +28,8 @@ export const deletePost = async (req, res) => {
 			})
 			.catch((e) => {
 				return res.status(400).send({
-					post: null,
-					message: e,
+					user: null,
+					message: e?.message || e,
 				});
 			});
 	} catch (err) {
