@@ -54,7 +54,7 @@ router.route('/post').post(createPost);
 /** ALL PATCH REQUEST */
 router.route('/user').patch(updateUser);
 router.route('/posts/:id/comment').patch(commentPost);
-router.route('/post/:id').patch(updatePost);
+router.route('/posts/:id').patch(updatePost);
 
 /** ALL PUT REQUEST */
 
