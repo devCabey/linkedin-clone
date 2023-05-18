@@ -50,9 +50,10 @@ export const deleteComment = async (req, res) => {
 			if (!_user) throw new Error('User not found');
 			const comments = [..._post.comments];
 			if (!comments.length) throw new Error('Comment is empty');
-			const commentIndex = comments.findIndex((data) => {
-				return data._id.equals(commentId);
+			const commentIndex = comments.findIndex((data, index) => {
+				if (commentId === data._id) return index;
 			});
+			console.log(commentIndex);
 			if (!commentIndex) throw new Error('Comment not found');
 			const newComments = comments.splice(commentIndex, 1);
 			await _post.updateOne({ $set: { comments: newComments } });
