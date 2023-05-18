@@ -50,13 +50,15 @@ export const deleteComment = async (req, res) => {
 			if (!_user) throw new Error('User not found');
 			const comments = [..._post.comments];
 			if (!comments.length) throw new Error('Comment is empty');
-			const commentIndex = comments.findIndex((data, index) => {
-				if (commentId === data._id) return index;
+			let data_id;
+			const commentIndex = comments.findIndex((data) => {
+				data_id = data._id.toString();
+				return data_id == commentId;
 			});
-			console.log(commentIndex);
-			if (!commentIndex) throw new Error('Comment not found');
-			const newComments = comments.splice(commentIndex, 1);
-			await _post.updateOne({ $set: { comments: newComments } });
+
+			if (commentIndex === -1) throw new Error('Comment not found');
+			comments.splice(commentIndex, 1);
+			await _post.updateOne({ $set: { comments } });
 			return res.status(200).send({
 				post: _post,
 				message: 'Comment deleted successfully',
