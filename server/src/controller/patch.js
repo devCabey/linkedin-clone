@@ -1,6 +1,16 @@
 import { authorize } from '../helper/index.js';
 import { PostModel, UserModel } from '../model/index.js';
 
+/**
+ * PATCH: http://localhost:8080/api/user
+ * @param {
+ * 	firstName: string || null,
+ *		lastName: string || null,
+ *		about: string || null,
+ *	 	profile: string || null
+ * } req.body
+ * @param {*} res
+ */
 export const updateUser = async (req, res) => {
 	try {
 		const { lastName, firstName, about, profile } = req.body;
@@ -37,6 +47,17 @@ export const updateUser = async (req, res) => {
 	}
 };
 
+/**
+ * PATCH: http://localhost:8080/api/post/:id
+ * @param {
+ * 		description: string || null,
+ *		picture: [string] || null,
+ *		video: [string] || null,
+ * } req.params
+ * @param {
+ * 		id: ObjectId
+ * } req.params
+ */
 export const updatePost = async (req, res) => {
 	const { id } = req.params;
 	authorize(req)
@@ -61,7 +82,15 @@ export const updatePost = async (req, res) => {
 			});
 		});
 };
-
+/**
+ * PATCH: http://localhost:8080/api/post/:id
+ * @param {
+* 		description: string!
+* } req.body
+* @param {
+* 		id: ObjectId
+* } req.params
+*/
 export const commentPost = async (req, res) => {
 	const { description } = req.body;
 	const { id } = req.params;
