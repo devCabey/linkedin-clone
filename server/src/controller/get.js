@@ -228,6 +228,14 @@ export const unfollowUser = async (req, res) => {
 		});
 };
 
+/**
+ * GET: http://localhost:8080/api/posts/:id/like
+ * @param {
+* id:ObjectId
+* } req.params
+* @param {*} res
+*/
+
 export const likePost = async (req, res) => {
 	const { id } = req.params;
 	authorize(req)
@@ -258,6 +266,14 @@ export const likePost = async (req, res) => {
 			});
 		});
 };
+
+/**
+ * GET: http://localhost:8080/api/posts/:id/dislike
+ * @param {
+* id:ObjectId
+* } req.params
+* @param {*} res
+*/
 
 export const dislikePost = async (req, res) => {
 	const { id } = req.params;
