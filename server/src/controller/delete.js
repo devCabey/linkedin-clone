@@ -40,6 +40,14 @@ export const deletePost = async (req, res) => {
 	}
 };
 
+/**
+ * DELETE: http://localhost:8080/api/posts/:id/comment/:commentId
+ * @param {
+ * id: ObjectId
+ * commentId: ObjectId
+ * } req.params
+ * @param {*} res
+ */
 export const deleteComment = async (req, res) => {
 	const { id, commentId } = req.params;
 	authorize(req)
