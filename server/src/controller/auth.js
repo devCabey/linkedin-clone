@@ -9,8 +9,10 @@ import { UserModel } from '../model/index.js';
 export const registerUser = async (req, res) => {
 	const { email, password } = req.body;
 	try {
+		/** checking whether user already exist */
 		const _user = await UserModel.findOne({ email });
 		if (_user) throw new Error('User already exist');
+		/** creating a new user */
 		const newUser = new UserModel({
 			email,
 			password,
@@ -38,11 +40,14 @@ export const registerUser = async (req, res) => {
 export const loginUser = async (req, res) => {
 	const { email, password } = req.body;
 	try {
+		/** checking whether user provided email before proceeding */
 		if (!email) throw new Error('Provide the email of user');
+		/** getting user info */
 		const _user = await UserModel.findOne({ email });
 		if (!_user) throw new Error("User doesn't exist");
 		const validPassword = await _user.comparePasswords(password);
 		if (!validPassword) throw new Error('Password does not match');
+		/** generating token */
 		const token = await _user.generateToken();
 		if (!token) throw new Error('Unable to generate token');
 		return res.status(201).send({
