@@ -288,6 +288,8 @@ export const dislikePost = async (req, res) => {
 			/** filter post likes after checking whether already liked */
 			const exist = await _post.likes.includes(payload.id);
 			if (!exist) throw new Error('User has not liked this post');
+
+			
 			const likes = await _post.likes.filter((_id) => {
 				return !_id.equals(_user._id);
 			});
