@@ -289,7 +289,7 @@ export const dislikePost = async (req, res) => {
 			const exist = await _post.likes.includes(payload.id);
 			if (!exist) throw new Error('User has not liked this post');
 
-			
+			/** remove user from likes*/
 			const likes = await _post.likes.filter((_id) => {
 				return !_id.equals(_user._id);
 			});
