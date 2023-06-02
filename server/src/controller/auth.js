@@ -2,7 +2,7 @@ import { UserModel } from '../model/index.js';
 
 /** POST: http://localhost:8080/api/register
  * @param {
- * email:string!,
+ * email:string!
  * password:string!
  * } body
  */

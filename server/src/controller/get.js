@@ -270,7 +270,7 @@ export const likePost = async (req, res) => {
 /**
  * GET: http://localhost:8080/api/posts/:id/dislike
  * @param {
-* id:ObjectId
+* 	id:ObjectId
 * } req.params
 * @param {*} res
 */

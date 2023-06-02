@@ -4,9 +4,9 @@ import { PostModel, UserModel } from '../model/index.js';
 /**
  * POST: http://localhost:8080/api/post
  * @param {
- * description: string || null,
- * picture:string || null,
- * video:string || null ,
+ * description: string || null
+ * picture:string || null
+ * video:string || null
  * } req.body
  * @param {
  * post:Object || null

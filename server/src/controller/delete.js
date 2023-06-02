@@ -4,7 +4,7 @@ import { PostModel, UserModel } from '../model/index.js';
 /**
  * DELETE: http://localhost:8080/api/posts/:id
  * @param {
- * id:ObjectId
+ * 	id:ObjectId
  * } req.params
  * @param {*} res
  */
