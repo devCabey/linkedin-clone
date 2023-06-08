@@ -59,3 +59,14 @@ export const getUsers = async (username) => {
 		throw new Error(e);
 	}
 };
+
+export const followUser = async (id) => {
+	try {
+		const response = await axios.get(
+			`${process.env.SERVER_URL}/users/${id}/follow`
+		);
+		return response;
+	} catch (e) {
+		throw new Error(e);
+	}
+};
