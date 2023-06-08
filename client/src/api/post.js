@@ -21,3 +21,14 @@ export const loginUser = async (user) => {
 		throw new Error(e);
 	}
 };
+
+export const createPost = async (post) => {
+	try {
+		const response = await axios.post(`${process.env.SERVER_URL}/post`, {
+			body: { ...post },
+		});
+		return response;
+	} catch (e) {
+		throw new Error(e);
+	}
+};
