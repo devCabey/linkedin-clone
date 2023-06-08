@@ -70,3 +70,14 @@ export const followUser = async (id) => {
 		throw new Error(e);
 	}
 };
+
+export const unfollowUser = async (id) => {
+	try {
+		const response = await axios.get(
+			`${process.env.SERVER_URL}/users/${id}/unfollow`
+		);
+		return response;
+	} catch (e) {
+		throw new Error(e);
+	}
+};
