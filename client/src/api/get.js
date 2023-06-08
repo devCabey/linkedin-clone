@@ -26,3 +26,12 @@ export const likePost = async (id) => {
 		throw new Error(e);
 	}
 };
+
+export const unlikePost = async (id) => {
+	try {
+		const response = await axios.get(`${process.env.SERVER_URL}/posts/${id}/dislike`);
+		return response;
+	} catch (e) {
+		throw new Error(e);
+	}
+};
