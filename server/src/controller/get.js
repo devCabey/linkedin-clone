@@ -85,7 +85,7 @@ export const getUser = async (req, res) => {
 export const getPosts = async (req, res) => {
 	try {
 		/**fetching posts */
-		const _posts = await PostModel.find();
+		const _posts = await PostModel.find().populate('owner');
 		res.status(201).send({
 			posts: _posts,
 			message: 'Post fetched successfully',
