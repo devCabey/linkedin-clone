@@ -22,9 +22,18 @@ export const getUsers = async (req, res) => {
 					],
 			  })
 			: await UserModel.find();
+		let __users;
+		if (_users.length > 0) {
+			__users = _users.map((data) => {
+				const { password, ...rest } = Object.assign({}, data.toJSON());
+				return rest;
+			});
+		} else {
+			__users = _users;
+		}
 		/** work on backend pagination */
 		return res.status(200).send({
-			users: _users,
+			users: __users,
 			message: 'Users fetched successfully',
 		});
 	} catch (err) {
@@ -231,10 +240,10 @@ export const unfollowUser = async (req, res) => {
 /**
  * GET: http://localhost:8080/api/posts/:id/like
  * @param {
-* id:ObjectId
-* } req.params
-* @param {*} res
-*/
+ * id:ObjectId
+ * } req.params
+ * @param {*} res
+ */
 
 export const likePost = async (req, res) => {
 	const { id } = req.params;
@@ -270,10 +279,10 @@ export const likePost = async (req, res) => {
 /**
  * GET: http://localhost:8080/api/posts/:id/dislike
  * @param {
-* 	id:ObjectId
-* } req.params
-* @param {*} res
-*/
+ * 	id:ObjectId
+ * } req.params
+ * @param {*} res
+ */
 
 export const dislikePost = async (req, res) => {
 	const { id } = req.params;
