@@ -17,6 +17,6 @@ export const postsSlice = createSlice({
 
 export const { updatePosts, resetPosts } = postsSlice.actions;
 
-export const selectPost = (state) => state.posts.data;
+export const selectPosts = (state) => state.posts.data;
 
 export default postsSlice.reducer;

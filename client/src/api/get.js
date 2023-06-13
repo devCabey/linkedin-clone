@@ -2,8 +2,8 @@ import axios from 'axios';
 
 export const getPosts = async () => {
 	try {
-		const response = await axios.get(`${process.env.SERVER_URL}/posts`);
-		return response;
+		const response = await axios.get(`api/posts`);
+		return response.data;
 	} catch (e) {
 		throw new Error(e);
 	}
@@ -11,8 +11,8 @@ export const getPosts = async () => {
 
 export const getPost = async (id) => {
 	try {
-		const response = await axios.get(`${process.env.SERVER_URL}/posts/${id}`);
-		return response;
+		const response = await axios.get(`api/posts/${id}`);
+		return response.data;
 	} catch (e) {
 		throw new Error(e);
 	}
@@ -23,7 +23,7 @@ export const likePost = async (id) => {
 		const response = await axios.get(
 			`${process.env.SERVER_URL}/posts/${id}/like`
 		);
-		return response;
+		return response.data;
 	} catch (e) {
 		throw new Error(e);
 	}
@@ -34,7 +34,7 @@ export const unlikePost = async (id) => {
 		const response = await axios.get(
 			`${process.env.SERVER_URL}/posts/${id}/dislike`
 		);
-		return response;
+		return response.data;
 	} catch (e) {
 		throw new Error(e);
 	}
@@ -43,7 +43,7 @@ export const unlikePost = async (id) => {
 export const getUser = async (id) => {
 	try {
 		const response = await axios.get(`${process.env.SERVER_URL}/users/${id}`);
-		return response;
+		return response.data;
 	} catch (e) {
 		throw new Error(e);
 	}
@@ -54,7 +54,7 @@ export const getUsers = async (username) => {
 		const response = await axios.get(
 			`${process.env.SERVER_URL}/users/${username}`
 		);
-		return response;
+		return response.data;
 	} catch (e) {
 		throw new Error(e);
 	}
@@ -65,7 +65,7 @@ export const followUser = async (id) => {
 		const response = await axios.get(
 			`${process.env.SERVER_URL}/users/${id}/follow`
 		);
-		return response;
+		return response.data;
 	} catch (e) {
 		throw new Error(e);
 	}
@@ -76,7 +76,7 @@ export const unfollowUser = async (id) => {
 		const response = await axios.get(
 			`${process.env.SERVER_URL}/users/${id}/unfollow`
 		);
-		return response;
+		return response.data;
 	} catch (e) {
 		throw new Error(e);
 	}
