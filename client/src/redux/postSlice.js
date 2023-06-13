@@ -6,16 +6,17 @@ export const postSlice = createSlice({
 		data: null,
 	},
 	reducers: {
-		getPost: (state, action) => {
+		updatePost: (state, action) => {
 			state.data = action.payload;
 		},
-		getPosts: (state) => {
+		resetPost: (state) => {
 			state.data = null;
 		},
 	},
 });
 
-export const { getPost, getPosts } = postSlice.actions;
+export const { updatePost, resetPost } = postSlice.actions;
 
 export const selectPost = (state) => state.post.data;
+
 export default postSlice.reducer;
