@@ -17,14 +17,15 @@ import { getPosts } from '../../api';
 
 function Feed() {
 	const postsData = useSelector(selectPosts);
-	// console.log(postsData);
 	const dispatch = useDispatch();
+
 	useEffect(() => {
 		getPosts().then((data) => {
 			const { posts, message } = data;
 			dispatch(updatePosts(posts));
 		});
 	}, []);
+
 	return (
 		<div className='feed'>
 			<div className='feed_profile_hide'>
@@ -63,7 +64,19 @@ function Feed() {
 			{/* Posts */}
 			<div className='feed_post_wrapper'>
 				{postsData?.length > 0 ? (
-					postsData.map((post) => <Post key={post._id} />)
+					postsData.map((post) => (
+						<Post
+							key={post._id}
+							name={`${post.owner.firstName} ${post.owner.lastName}`}
+							// description={post.owner}
+							message={post.description}
+							photoUrl={post.picture}
+							// profilePic={post.owner}
+							likes={post.likes?.length}
+							comment={post.comments.length}
+							repost={post.reposts.length}
+						/>
+					))
 				) : (
 					<div className=''>
 						<h1>Nothing</h1>
